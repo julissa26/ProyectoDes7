@@ -1,19 +1,8 @@
 .formFinal{
-background-color: lightgray;
 max-width: 800px;
 margin: 2rem auto;
 border: 2px solid #681a5d;
-border-radius: 5px;
 padding: 2rem; 
-}
-
-.solicitudes{
-background-color: lightgray;
-max-width: 800px;
-margin: 2rem auto;
-border: 2px solid #681a5d;
-border-radius: 5px;
-padding: 2rem;
 }
 
 textarea{
@@ -30,7 +19,9 @@ button{
     border:0;
     padding:0;
     margin:0;
+    text-decoration:underline;
     background:none;
+    color:#000088;
     font-family: arial, sans-serif;
     font-size: 1em;
     line-height:1em;
@@ -38,5 +29,6 @@ button{
 
 .enlace:hover {
     text-decoration:none;
+    color:#0000cc;
     cursor:pointer;
   }
