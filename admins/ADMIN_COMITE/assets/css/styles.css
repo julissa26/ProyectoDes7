@@ -193,3 +193,38 @@ footer .list-inline .list-inline-item {
 @media (min-width: 992px) and (max-width: 1199.98px) { }
 
 @media (min-width: 1200px) { }
+
+.contenido-tabla{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.7em;
+    min-width: 400px;
+}
+
+.contenido-tabla thead tr {
+    background-color: #681a5d;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.contenido-tabla th,
+.contenido-tabla td{
+      padding: 12px 15px;
+}
+
+.contenido-tabla tbody tr {
+    border-bottom: 1px solid grey;
+}
+
+.contenido-tabla tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.contenido-tabla tbody tr:nth-of-type(odd) {
+    background-color: #dddddd;
+}
+
+.contenido-tabla tbody tr:last-of-type {
+    border-bottom: 2px solid #681a5d;
+}
