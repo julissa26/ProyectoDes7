@@ -103,51 +103,60 @@ $user = $_SESSION['user'];
                     </p>
                 <br>   
                 <ol>
-                    <table> 
+                    <table class="contenido-tabla"> 
+                    <thead>
                         <tr>
-                            <th> Informe:</th>
+                            <th><label for="cedula">cedula: </label></th>
+                            <th><label for="informe">Informe: </label></th>
                             <th><label for="fecha">Fecha: </label></th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <ul>   
-                                <td>
-                                    <a href="verSolPendiente.php">Informe 1: Futura Estrella LigaMX</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">del: 14/04/19 al: 18/04/19 </label></p>
-                                </td>   
-
-                            </ul>
+                            <td>
+                                <label for="cedula">2-743-2480</label>
+                            </td>  
+                            <td>
+                                <a href="verSolPendiente.html">Informe 1: Futura Estrella LigaMX</a>
+                            </td>
+                            <td>
+                                <label for="fecha">del: 14/04/19 al: 18/04/19 </label>
+                            </td>   
                         </tr>
                         <tr>
-                            <ul>
-                                <td>
-                                    <a href="#">Informe 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">del: 10/05/19 al: 11/05/19 </label></p>
-                                </td>
-                            </ul>
+                            <td>
+                                <label for="cedula">9-956-121</label>
+                            </td>
+                            <td>
+                                <a href="#">Informe 2: Torneo Internacional de Ajedrez Colombia 2019</a>
+                            </td>
+                            <td>
+                                <label for="fecha">del: 10/05/19 al: 11/05/19 </label>
+                            </td>
                         </tr>
                         <tr>
-                            <ul><td>
-                                    <a href="#">Informe 3: Olimpiadas de Fisica Costa Rica</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">del: 08/07/19 al: 10/07/19 </label></p>
-                                </td>
-                            </ul>
+                            <td>
+                                <label for="cedula">8-934-2411</label>
+                            </td>
+                            <td>
+                                <a href="#">Informe 3: Olimpiadas de Fisica Costa Rica</a>
+                            </td>
+                            <td>
+                                <label for="fecha">del: 08/07/19 al: 10/07/19 </label>
+                            </td>
                         </tr>
                         <tr>
-                            <ul>
-                                <td>
-                                    <a href="#">Informe 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                                </td>                                    
-                                <td>
-                                    <p><label for="fecha">del: 04/10/19 al: 05/10/19 </label></p>
-                                </td>                                   
-                            </ul>
+                            <td>
+                                <label for="cedula">6-922-1576</label>
+                            </td>
+                            <td>
+                                <a href="#">Informe 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
+                            </td>                                    
+                            <td>
+                                <label for="fecha">del: 04/10/19 al: 05/10/19 </label>
+                            </td>                                   
                         </tr>
+                    </tbody>
                     </table> 
                     </ol>
                 </div>

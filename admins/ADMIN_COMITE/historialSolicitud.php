@@ -91,7 +91,7 @@ $user = $_SESSION['user'];
                 <div class="content-center">
                     <h2 class="margintop-lg">Historial</h2>
                 </div>
-            </duv>
+        </duv>
             <div class="solicitudes">
                 <p>
                     <label for="cedula">CÉDULA DEL ESTUDIANTE: </label><br>
@@ -103,67 +103,77 @@ $user = $_SESSION['user'];
                     </p>
                 <br>   
                 <ol>
-                    <table> 
+                    <table class="contenido-tabla">
+                    <thead> 
                         <tr>
-                            <th> Solicitud:</th>
+                            <th><label for="cedula"> Cédula:</label></th>
+                            <th><label for="solicitud">Solicitud:</label></th>
                             <th><label for="fecha">Fecha: </label></th>
                             <th><label for="estado">Estado: </label></th>
                         </tr>
+                    </thead>
+                    <tbody>    
                         <tr>
-                            <ul>   
-                                <td>
-                                    <a href="verSolPendiente.php">Solicitud 1: Futura Estrella LigaMX</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">14/04/19 </label></p>
-                                </td>   
-                                 <td>
-                                    <p><label for="estado">Recomendado </label></p>
-                                </td>
-                            </ul>
+                            <td>
+                                <label for="cedula">2-743-2480</label>
+                            </td>   
+                            <td>
+                                <a href="verSolPendiente.php">Solicitud 1: Futura Estrella LigaMX</a>
+                            </td>
+                            <td>
+                                <label for="fecha">14/04/19 </label>
+                            </td>   
+                            <td>
+                                <label for="estado">Recomendado </label>
+                            </td>
                         </tr>
                         <tr>
-                            <ul>
-                                <td>
-                                    <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">10/05/19 </label></p>
-                                </td>
-                                <td>
-                                    <p><label for="estado">Recomendado </label></p>
-                                </td>
-                            </ul>
+                            <td>
+                                <label for="cedula">9-956-121</label>
+                            </td>
+                            <td>
+                                <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
+                            </td>
+                            <td>
+                                <label for="fecha">10/05/19 </label>
+                            </td>
+                            <td>
+                                <label for="estado">Recomendado </label>
+                            </td>
                         </tr>
                         <tr>
-                            <ul><td>
-                                    <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                                </td>
-                                <td>
-                                    <p><label for="fecha">08/06/19 </label></p>
-                                </td>
-                                <td>
-                                    <p><label for="estado">No Recomendado </label></p>
-                                </td>
-                            </ul>
+                            <td>
+                                <label for="cedula">8-934-2411</label>
+                            </td>
+                            <td>
+                                <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
+                            </td>
+                            <td>
+                                <label for="fecha">08/06/19 </label>
+                            </td>
+                            <td>
+                                <label for="estado">No Recomendado </label>
+                            </td>
                         </tr>
                         <tr>
-                            <ul>
-                                <td>
-                                    <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                                </td>                                    
-                                <td>
-                                    <p><label for="fecha">04/10/19 </label></p>
-                                </td>
-                                <td>
-                                    <p><label for="estado">Recomedado </label></p>
-                                </td>                                    
-                            </ul>
+                            <td>
+                                <label for="cedula">6-922-1576</label>
+                            </td>
+                            <td>
+                                <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
+                            </td>                                    
+                            <td>
+                                <label for="fecha">04/10/19 </label>
+                            </td>
+                            <td>
+                                <label for="estado">Recomedado </label>
+                            </td>                                    
                         </tr>
+                    </tbody>
                     </table> 
-                    </ol>
-                </div>
-</section>
+                </ol>
+            </div>
+    </section>
     <br>
     <br>
     <br>
