@@ -1,7 +1,7 @@
 <?php
 
 include ('conexion.php');
-include ('validar.php');
+include ('../validar.php');
 
 $contraseña = $_POST['contra'];
 $contraNueva = $_POST['contraNueva'];

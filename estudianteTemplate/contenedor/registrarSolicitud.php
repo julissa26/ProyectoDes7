@@ -1,5 +1,6 @@
 <?php
 include ('conexion.php');
+include ('../validar.php');
 
 $nombre = $_POST['nombre'];
 $cedula = $_POST['cedula'];
@@ -33,7 +34,7 @@ if($_POST['apoyo'] != ""){
 }
 
 
-$insertar= mysqli_query($conexion, "INSERT INTO solicitud (nombre, cedula, unidadAcademica, nombreEvento, fechaInicial, fechaFinal, comentarios) VALUES ('".$nombre."', '".$cedula."', '".$unidadaca."','".$nombreeve."','".$fechaini."','".$fechafin."','".$comentarios."')");
+$insertar= mysqli_query($conexion, "INSERT INTO solicitud (nombre, cedula, unidadAcademica, nombreEvento, fechaInicial, fechaFinal, comentarios, solicitud) VALUES ('".$nombre."', '".$cedula."', '".$unidadaca."','".$nombreeve."','".$fechaini."','".$fechafin."','".$comentarios."',1)");
 
 
 $consulta = mysqli_query($conexion, "SELECT idSolicitud FROM solicitud WHERE cedula = '".$cedula."'");
