@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2019 a las 07:39:48
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.11
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2019 at 03:46 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bdfinal`
+-- Database: `bdfinal`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ch`
+-- Table structure for table `ch`
 --
 
 CREATE TABLE `ch` (
@@ -38,7 +38,7 @@ CREATE TABLE `ch` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `informe`
+-- Table structure for table `informe`
 --
 
 CREATE TABLE `informe` (
@@ -56,7 +56,7 @@ CREATE TABLE `informe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `informe`
+-- Dumping data for table `informe`
 --
 
 INSERT INTO `informe` (`idInforme`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `participante`, `resultados`, `conclusiones`, `recomendaciones`, `imagen`, `imagen2`, `imagen3`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `informe` (`idInforme`, `nombreEvento`, `fechaInicial`, `fechaFinal`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitud`
+-- Table structure for table `solicitud`
 --
 
 CREATE TABLE `solicitud` (
@@ -81,28 +81,31 @@ CREATE TABLE `solicitud` (
   `alcanceEve` text NOT NULL,
   `apoyoEspecial` text NOT NULL,
   `apoyo` text NOT NULL,
-  `estado` text NOT NULL
+  `estado` text NOT NULL,
+  `rev_secretaria` varchar(10) DEFAULT NULL,
+  `rev_comite` varchar(10) DEFAULT NULL,
+  `rev_rector` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `solicitud`
+-- Dumping data for table `solicitud`
 --
 
-INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `unidadAcademica`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `apoyoEspecial`, `apoyo`, `estado`) VALUES
-(21, 'Jojhan Arboleda', '8', 'FISC', '1', '1', '07-01-2020', 'e', '', '', '', '', ''),
-(22, 'Jojhan Arboleda', '8-939-629', 'FISC', '122', '124', '07-01-2020', 'muchos', '', '', '', '', ''),
-(23, 'pedro', '8', 'f', '1', '1', '07-01-2020', 'njn', '', '', '', '', ''),
-(24, '', '', '', '', '', '', '', '', '', 'Inscripcion', '', ''),
-(25, '', '', '', '', '', '', '', '', '', 'Hospedaje', '', ''),
-(26, '', '', '', '', '', '', '', '', '', 'Gastos de Viaje', '', ''),
-(27, '', '', '', '', '', '', '', '', '', '', 'inscripcion', ''),
-(28, '', '', '', '', '', '', '', '', '', '', 'apoyoEconomico ', ''),
-(29, 'pedro', '9', 'FISC', '1', '1', '07-01-2020', 'bfk', '', '', '', '', '');
+INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `unidadAcademica`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `apoyoEspecial`, `apoyo`, `estado`, `rev_secretaria`, `rev_comite`, `rev_rector`) VALUES
+(21, 'Jojhan Arboleda', '8', 'FISC', '1', '1', '07-01-2020', 'e', '', '', '', '', '', NULL, NULL, NULL),
+(22, 'Jojhan Arboleda', '8-939-629', 'FISC', '122', '124', '07-01-2020', 'muchos', '', '', '', '', '', NULL, NULL, NULL),
+(23, 'pedro', '8', 'f', '1', '1', '07-01-2020', 'njn', '', '', '', '', '', NULL, NULL, NULL),
+(24, '', '', '', '', '', '', '', '', '', 'Inscripcion', '', '', NULL, NULL, NULL),
+(25, '', '', '', '', '', '', '', '', '', 'Hospedaje', '', '', NULL, NULL, NULL),
+(26, '', '', '', '', '', '', '', '', '', 'Gastos de Viaje', '', '', NULL, NULL, NULL),
+(27, '', '', '', '', '', '', '', '', '', '', 'inscripcion', '', NULL, NULL, NULL),
+(28, '', '', '', '', '', '', '', '', '', '', 'apoyoEconomico ', '', NULL, NULL, NULL),
+(29, 'pedro', '9', 'FISC', '1', '1', '07-01-2020', 'bfk', '', '', '', '', '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -116,7 +119,7 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
 INSERT INTO `usuario` (`cedula`, `email`, `nombre`, `apellido`, `contra`, `telefono`, `tipo`) VALUES
@@ -128,27 +131,27 @@ INSERT INTO `usuario` (`cedula`, `email`, `nombre`, `apellido`, `contra`, `telef
 ('8-939-629', 'jojhan77@email.com', 'Jojhan ', 'Arboleda', '12345', '60912953', 1);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `solicitud`
+-- Indexes for table `solicitud`
 --
 ALTER TABLE `solicitud`
   ADD PRIMARY KEY (`idSolicitud`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`cedula`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `solicitud`
+-- AUTO_INCREMENT for table `solicitud`
 --
 ALTER TABLE `solicitud`
   MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
