@@ -3,6 +3,21 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consult= mysqli_query($conexion,"SELECT cedula FROM usuario WHERE email = '".$user."' ");
+
+while($bruh = mysqli_fetch_array($consult)){
+    $ced = $bruh['cedula'];
+}
+
+
+$consulta = mysqli_query($conexion,"SELECT nombre, apellido, email, contra FROM usuario WHERE cedula = '".$ced."'");
+
+while($bruh = mysqli_fetch_array($consulta)){
+    $nombre = $bruh ['nombre'];
+    $apellido = $bruh ['apellido'];
+    $email = $bruh ['email'];
+    $contra = $bruh ['contra'];
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -92,23 +107,19 @@ $user = $_SESSION['user'];
             <div class="content-center">
 
     
-                <h2 class="margintop-lg">PERFIL ESTUDIANTE</h2>
+                <h2 class="margintop-lg">PERFIL ESTUDIANTE</h2> 
                 
                 
     <form action="modificar.php" method="POST">
-        Introduzca su Contraseña actual:<br/>
+    <h2><?php echo $user?></h2>
+        <h2 class="margintop-lg"><?php echo $nombre; echo $apellido;?> </h2>
+        Introduzca su Contraseña:<br/>
         <input type="password" name="contra" /><br/>
 
-        Introduzca su Contraseña nueva:<br/>
-        <input type="text" name="contraNueva" /><br/>
+        Correo:</br>
+        <input type="text" name="email" value="<?php echo $email; ?>"><br/>
 
-        Correo Actual:<br/>
-        <input type="text" name="email" /><br/>
-
-        Correo Nuevo:<br/>
-        <input type="text" name="emailNuevo" /><br/>
-
-        <input type="submit" value="Actualizar"/>
+        <br/><input type="submit" value="Actualizar"/>
     </form>
 
             
