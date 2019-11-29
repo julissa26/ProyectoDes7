@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V4</title>
+	<title>Sistema de Apoyo Economico Estudiantil</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -25,12 +25,13 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 <!--===============================================================================================-->
 </head>
-<body>
+<body >
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('images/img1.jpg'); " >
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form class="login100-form validate-form" action="verificar.php" method="POST">
 					<span class="login100-form-title p-b-49">
@@ -56,12 +57,14 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="sumbit">
+						
+							<div class="login100-form-bgbtn">
+								 
+							</div>
+							<button class="boton" type="sumbit">
 								INICIAR SESIÓN
 							</button>
-						</div>
+						
 					</div>
 
 					

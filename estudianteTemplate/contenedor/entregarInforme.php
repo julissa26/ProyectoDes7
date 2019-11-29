@@ -1,5 +1,5 @@
 <?php
-include ('validar.php');
+include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
@@ -56,7 +56,7 @@ $consulta = mysqli_query($conexion, "SELECT * FROM consulta WHERE estado = 'apro
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
+                    <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,6 +1,7 @@
 <?php
 include ('conexion.php');
 include ('contador.php');
+include ('../validar.php');
 
 
 $nombreeve = $_POST['nombreeve'];
