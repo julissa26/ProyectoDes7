@@ -1,3 +1,10 @@
+<?php
+include ('validar.php');
+include ('conexion.php');
+$user = $_SESSION['user'];
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -40,16 +47,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="homeAdmin.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendiente.html" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendiente.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.html" id="historialSol">Historial</a>
+                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -58,9 +65,9 @@
                           Informes 
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.html" id="entregarInfo">Pendientes</a>
+                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.html" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
                         </div>
                 </li>
 
@@ -69,7 +76,7 @@
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.html" id="perfilSesi">Mi Perfil</a>
+                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
                     </div>
@@ -79,29 +86,9 @@
         </div>
     </nav>
 
-    <section id="solicitudes">
-            <duv class="container">
-                    <div class="content-center">
-                        <h2 class="margintop-lg">Solicitudes</h2>
-                    </div>
-                </duv>
-                <div class="solicitudes">
-                        <ol>
-                            <li>
-                                <a href="verSolPendiente.html">Solicitud 1: Futura Estrella LigaMX</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                            </li>
-                        </ol>
-                    </div>
-    </section>
+    <br>
+    <br>
+    <br>
 
     <footer class="bgDark fixed-bottom">
             <div class="container">
