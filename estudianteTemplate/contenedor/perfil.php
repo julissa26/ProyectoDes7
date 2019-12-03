@@ -111,7 +111,6 @@ while($bruh = mysqli_fetch_array($consulta)){
                 
                 
     <form action="modificar.php" method="POST">
-    <h2><?php echo $user?></h2>
         <h2 class="margintop-lg"><?php echo $nombre; echo $apellido;?> </h2>
         Introduzca su Contraseña:<br/>
         <input type="password" name="contra" /><br/>

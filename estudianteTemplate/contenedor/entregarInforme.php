@@ -3,10 +3,10 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT * FROM consulta WHERE estado = 'aprobado' AND correo = '".$user."'");
+$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = '1' AND correo = '".$user."'");
     if(mysqli_num_rows($consulta) != 1)
     {
-        echo "USTED NO TIENE UNA SOLICITUD QUE NECESITE ENVIAR INFORME";
+       
         header('Location: home.php');
     }
 

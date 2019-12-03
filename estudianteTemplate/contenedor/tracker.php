@@ -3,6 +3,13 @@ include ('validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE solicitud = '1' AND correo = '".$user."'");
+
+if(mysqli_num_rows($consulta) != 1)
+{
+   
+    header('Location: home.php');
+}
 ?>
 <!doctype html>
 <html lang="en">

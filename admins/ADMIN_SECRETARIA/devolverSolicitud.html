@@ -1,10 +1,3 @@
-<?php
-include ('../validar.php');
-include ('conexion.php');
-$user = $_SESSION['user'];
-
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -47,16 +40,16 @@ $user = $_SESSION['user'];
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="homeAdmin.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendiente.html" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
+                          <a class="dropdown-item" href="historialSolicitud.html" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -65,9 +58,9 @@ $user = $_SESSION['user'];
                           Informes 
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">pendientes</a>
+                          <a class="dropdown-item" href="informesPendientes.html" id="entregarInfo">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="historialInforme.html" id="historialInfo">Historial</a>
                         </div>
                 </li>
 
@@ -76,60 +69,42 @@ $user = $_SESSION['user'];
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
+                        <a class="dropdown-item" href="perfil.html" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Historial</a>
+                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    
     <section id="fomulario">
             <duv class="container">
                     <div class="content-center">
-                        <h2 class="margintop-lg">Formulario Comité</h2>
+                        <h2 class="margintop-lg">Devolver Solicitud</h2>
                     </div>
                 </duv>
                 <form class="formFinal" name="formFinal" action="" method="post">
                         <fieldset class="step">
-                                <legend>Para Uso del Commité Evaluador</legend>
-                                <p>
-                                    <label for="relevancia">RELEVANCIA O NIVEL DEL EVENTO: </label><br>
-                                    <input id="relevancia" name="relevancia" type="radio" type="high" />ALTO
-                                    <input id="relevancia" name="relevancia" type="radio" type="medium" />MEDIO
-                                    <input id="relevancia" name="relevancia" type="radio" type="low" />BAJO
-                                </p>
-                                <p>
-                                    <label for="procede">PROCEDE: </label><br>
-                                    <input id="procede" name="procede" type="radio" type="yes" />SÍ
-                                    <input id="procede" name="procede" type="radio" type="no" />NO
-                                </p>
-                                <p>
-                                    <label for="observaciones">OBSERVACIONES Y RECOMENDACIONES DEL COMITÉ EVALUADOR: </label>
-                                    <textarea name="observaciones" rows="6" cols="100"></textarea>
-                                </p>
-                                <p>
-                                    <label for="firma">FIRMA DE LOS MIEMBROS DEL COMITÉ EVALUADOR: </label><br>
-                                    <input id="firma" name="firma" type="text" />
-                                </p>
-                                <p>
-                                    <label for="fecha">FECHA: </label><br>
-                                    <input id="fecha" name="fecha" type="text" />
-                                </p>
-                            </fieldset>
+                            <legend>Observación</legend>
+                            <p>
+                                <label for="justi">ESCRIBA LAS OBSERVACIONES PERTINENTES PARA QUE EL ESTUDIANTE CORRIJA </label>
+                                <textarea name="comentarios" rows="2" cols="30" ></textarea>
+                            </p>
+                           
+                        </fieldset>
 
-                            <fieldset class="step">
-                                    <legend>Confirmar</legend>
-                                    <p class="submit">
-                                        <button id="registerButton" type="submit">Enviar</button>
-                                    </p>
-                                </fieldset>
+						<fieldset class="step">
+                            <legend>Devolver</legend>
+							<p class="submit">
+                                    <button id="registerButton" type="submit">Enviar</button>
+                                </p>
+                        </fieldset>
                     </form>
     </section>
 
-    <footer class="bgDark">
+    <footer class="bgDark fixed-bottom">
             <div class="container">
                 <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
                <!--  <ul class="list-inline">

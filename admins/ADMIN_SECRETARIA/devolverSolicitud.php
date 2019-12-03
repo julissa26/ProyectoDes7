@@ -1,5 +1,5 @@
 <?php
-include ('validar.php');
+include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
