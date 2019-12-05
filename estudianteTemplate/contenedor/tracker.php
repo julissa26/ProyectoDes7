@@ -144,6 +144,7 @@ if($rec = 1){
             <div class="progress-bar" role="progressbar" style="width:<?php$secr?>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
             <div class="progress-bar bg-success" role="progressbar" style="width: <?php$comi?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
             <div class="progress-bar bg-info" role="progressbar" style="width: <?php$rect?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
+            <?php echo ?>
           </div>
           </section>
     

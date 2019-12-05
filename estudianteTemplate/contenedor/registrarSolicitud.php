@@ -27,6 +27,7 @@ if($_POST['apoyoEspecial'] != ""){
 if($_POST['apoyo'] != ""){
     if(is_array($_POST['apoyo'])){
         while(list($key,$value) = each($_POST['apoyo'])){
+            //AGREGAR UPDATE
             $sql=$conexion->prepare("INSERT INTO solicitud (apoyo) VALUES ('".$value."')");
             $sql->execute();
 

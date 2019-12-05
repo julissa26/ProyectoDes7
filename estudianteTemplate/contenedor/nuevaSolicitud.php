@@ -3,6 +3,14 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion, "SELECT * FROM usuario WHERE  email = '".$user."'");
+while($bruh = mysqli_fetch_array($consulta)){
+
+    $nombre = $bruh['nombre'];
+    $apellido = $bruh['apellido'];
+    $cedula = $bruh['cedula'];
+    $email = $bruh['correo'];
+}
 ?>
 
 <!doctype html>
@@ -100,11 +108,11 @@ $user = $_SESSION['user'];
 								<legend>INFORMACIÓN DE LOS ESTUDIANTES:</legend>
                             <p>
                                 <label for="nombre">NOMBRE: </label><br>
-                                <input id="nombre" name="nombre" type="text"/>
+                                <input id="nombre" name="nombre" placeholder="<?php echo $nombre, $apellido;?>"  type="text"/>
                             </p>
                             <p>
                                 <label for="cedula">CÉDULA: </label><br>
-                                <input id="cedula" name="cedula" placeholder="8-888-8888" type="text" AUTOCOMPLETE=OFF />
+                                <input id="cedula" name="cedula" placeholder="<?php echo $cedula;?>" type="text"  AUTOCOMPLETE=OFF />
                             </p>
                             <p>
                                 <label for="unidadaca">UNIDAD ACADÉMICA: </label><br>
@@ -156,7 +164,7 @@ $user = $_SESSION['user'];
                             </p>
                             <p>
                                 <label for="dirrecion">Especifique Lugar</label><br>                               
-                                <input id="dirrecion" name="dirrecion" type="text" />
+                                <input id="dirrecion" name="direcion" type="text" />
                             </p>
                              <p>APOYO OFRECIDO POR ORGANIZADORES O PATROCINADORES DEL EVENTO:<br><br>
                             <input type="checkbox" name="apoyoEspecial[]" value="Inscripcion" style="  width: 50px;">INSCRIPCIÓN <br>
@@ -178,11 +186,11 @@ $user = $_SESSION['user'];
                             
                                <p>
                                 MONTO DE INSCRIPCIÓN: <br>
-                                <input id="nombreeve" name="nombreeve" type="text" style="width: 112px;"/><br>	
+                                <input id="nombreeve" name="monto" type="text" style="width: 112px;"/><br>	
                                  MONTO DE GASTOS DE VIAJE: <br>
-                                 <input id="fecha" name="fechaini" type="text" style="   width: 112px;"/><br>
+                                 <input id="fecha" name="apoyoeco" type="text" style="   width: 112px;"/><br>
                                  MONTO DE APOYO ECONÓMICO: <br>
-                                     <input id="fecha" name="fechaini" type="text"style="    width: 112px;" />
+                                     <input id="fecha" name="apoyo" type="text"style="    width: 112px;" />
                                </p>
 
                                
