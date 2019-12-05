@@ -29,15 +29,15 @@ while($bruhh = mysqli_fetch_array($consultabruh)){
     $rec = $bruhh['rev_rector'];
 }
 if($sec = 1){
-    $sec= 33.33;
+    $secr= 3;
 }
 
 if($com = 1){
-    $com= 33.33;
+    $comi= 33.33;
 }
 
 if($rec = 1){
-    $rec= 33.33;
+    $rect= 33.33;
 }
 ?>
 <!doctype html>
@@ -141,9 +141,9 @@ if($rec = 1){
     <section id="tracker">
     <h2>hola</h2>
      <div class="progress content-center">
-            <div class="progress-bar" role="progressbar" style="width:<?php$sec?>" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
-            <div class="progress-bar bg-success" role="progressbar" style="width: <?php$com?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: 33.33%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
+            <div class="progress-bar" role="progressbar" style="width:<?php$secr?>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: <?php$comi?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: <?php$rect?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
           </div>
           </section>
     

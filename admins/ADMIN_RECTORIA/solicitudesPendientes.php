@@ -14,6 +14,16 @@ while($bruh = mysqli_fetch_array($consulta)){
     $fechafin = $bruh['fechaFinal'];
 }
 
+if(mysqli_num_rows($consulta)<= 0){
+    $idSol = '';
+    $nombre = '';
+    $cedula = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -104,77 +114,58 @@ while($bruh = mysqli_fetch_array($consulta)){
                 </ul>
             </div>
         </div>
-    </nav>
-    <section id="solicitudes">
-        <duv class="container">
-                <div class="content-center">
-                    <h2 class="margintop-lg">Solicitudes Pendientes</h2>
-                </div>
-            </duv>
-            <div class="solicitudes">
-                
-                        <ol>
-                        <table> 
-                            <tr>
-                                <th> Solicitud:</th>
-                                <th><label for="fecha">Fecha: </label></th>
-                                <th><label for="estado">Estado: </label></th>
-                            </tr>
-                            <tr>
-                                <ul>   
-                                    <td>
-                                    <?php echo $idSol ," ", $nombreEvento ," ", $nombre," ", $cedula," ";?><br/>
-                                <a href="verSolPendiente.php">Ver Datos</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">14/04/19 </label></p>
-                                    </td>   
-                                     <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul>
-                                    <td>
-                                        <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">10/05/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul><td>
-                                        <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">08/06/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul>
-                                    <td>
-                                        <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                                    </td>                                    
-                                    <td>
-                                        <p><label for="fecha">04/10/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>                                    
-                                </ul>
-                            </tr>
-                        </table> 
-                        </ol>
+    </nav>       
+                             
+                                <section id="fomulario">
+            <duv class="container">
+                    <div class="content-center">
+                        <h2 class="margintop-lg">Solicitudes Pendientes</h2>
                     </div>
+                </duv>
+                <form class="formFinal" name="formFinal" action="" method="post">
+                        <fieldset class="step">
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title"><?php echo $idSol ," ", $nombreEvento ," ";?><br/></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por <?php echo $nombre," ", $cedula," ";?><br/></p>
+                            <a href="verSolPendiente.php" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
+
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Torneo Internacional de Ajedrez Colombia 2019</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Juan Samaniego.</p>
+                            <a href="#" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
+
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Olimpiadas de Fisica Costa Rica</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Jualissa Bello.</p>
+                            <a href="#" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
+
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Johan Arboleda.</p>
+                            <a href="#" class="card-link">ver mas</a>                    
+                            </div>
+                            </div>
+                            <br>
+
+                        </fieldset>
+                    </form>
     </section>
 
     <footer class="bgDark">

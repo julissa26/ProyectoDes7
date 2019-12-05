@@ -13,7 +13,15 @@ while($bruh = mysqli_fetch_array($consulta)){
     $fechafin = $bruh['fechaFinal'];
 }
 
-
+if(mysqli_num_rows($consulta)<= 0){
+    $idSol = "Sin solicitud";
+    $nombre = '';
+    $cedula = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -193,11 +201,11 @@ while($bruh = mysqli_fetch_array($consulta)){
 						<fieldset class="step">
                             <legend>Aprobación o Rechazo de Solicitud</legend>
 							<p>
-                                <button><a class="enlace" <?php $update = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='aprobado' WHERE idSolicitud = '".$idSol."'");?>>Aprobar</a></button>
+                                <button><a class="enlace" <?php $update = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='aprobado' WHERE idSolicitud = '".$idSol."'");?> href='solicitudesPendientes.php'>Aprobar</a></button>
                             </p>
                             <br>
                             <p class="submit">
-                                <button><a class="enlace" <?php $updatee = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='rechazado' WHERE idSolicitud = '".$idSol."'");?>>Rechazar</a></button>
+                                <button><a class="enlace" <?php $updatee = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='rechazado' WHERE idSolicitud = '".$idSol."'");?>href='solicitudesPendientes.php'>Rechazar</a></button>
                             </p>
                             <br>
                         </fieldset>

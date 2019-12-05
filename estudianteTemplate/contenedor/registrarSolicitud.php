@@ -62,5 +62,5 @@ if($_POST['apoyo'] != ""){
 }
 }   */
 
-header('Location: ../home.php');
+header('Location: home.php');
 ?>
