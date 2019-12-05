@@ -4,7 +4,7 @@ include ('conexion.php');
 include ('solicitudesPendientes.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT idSolicitud,unidadAcademica,fechaInicial,fechaFinal, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = '' AND idSolicitud = '".$idSol."' ");
+$consulta = mysqli_query($conexion, "SELECT idSolicitud,unidadAcademica,fechaInicial,fechaFinal, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND checkeado = '' AND idSolicitud = '".$idSol."' ");
 while ($bruh = mysqli_fetch_array($consulta)){
     $cedula = $bruh['cedula'];
     $idSol = $bruh['idSolicitud'];
@@ -193,10 +193,10 @@ while ($bruh = mysqli_fetch_array($consulta)){
 						<fieldset class="step">
                             <legend>Aprobar/Devolver</legend>
 							<p>
-                        <button><a class="enlace" <?php $insertar =mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'"); ?>>Aprobar</a></button>
+                        <button><a class="enlace" <?php $insertar =mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', checkeado='secretaria' WHERE idSolicitud = '".$idSol."'"); ?>>Aprobar</a></button>
 							</p>
                             <p class="submit">
-                                <button><a class="enlace"  <?php $consulta3=mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'");?>href="devolverSolicitud.html">Devolver</a></button>
+                                <button><a class="enlace"  <?php $consulta3=mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', checkeado='secretaria' WHERE idSolicitud = '".$idSol."'");?>href="devolverSolicitud.html">Devolver</a></button>
                             </p>
                         </fieldset>
                     </form>

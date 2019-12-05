@@ -3,7 +3,7 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = ''");
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND checkeado = ''");
 while($bruh = mysqli_fetch_array($consulta)){
     $idSol = $bruh['idSolicitud'];
     $nombre = $bruh['nombre'];

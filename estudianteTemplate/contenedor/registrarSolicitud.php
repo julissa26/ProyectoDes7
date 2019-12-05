@@ -36,7 +36,7 @@ if($_POST['apoyo'] != ""){
 }
 
 
-$insertar= mysqli_query($conexion, "INSERT INTO solicitud (nombre, cedula,correo, unidadAcademica, nombreEvento, fechaInicial, fechaFinal, comentarios, solicitud) VALUES ('".$nombre."', '".$cedula."','".$user."' '".$unidadaca."','".$nombreeve."','".$fechaini."','".$fechafin."','".$comentarios."',1)");
+$insertar= mysqli_query($conexion, "INSERT INTO solicitud (nombre, cedula,correo, unidadAcademica, nombreEvento, estado,fechaInicial, fechaFinal, comentarios, solicitud) VALUES ('".$nombre."', '".$cedula."','".$user."' ,'".$unidadaca."','".$nombreeve."','pendiente','".$fechaini."','".$fechafin."','".$comentarios."',1)");
 
 
 $consulta = mysqli_query($conexion, "SELECT idSolicitud FROM solicitud WHERE cedula = '".$cedula."'");

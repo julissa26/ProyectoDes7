@@ -2,7 +2,7 @@
 include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
-$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento, unidadAcademica,fechaInicial, fechaFinal FROM solicitud WHERE  solicitud = '1' AND estado = 'comite'");
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento, unidadAcademica,fechaInicial, fechaFinal FROM solicitud WHERE  solicitud = '1' AND checkeado = 'comite'");
 while($bruh = mysqli_fetch_array($consulta)){
     $idSol = $bruh['idSolicitud'];
     $nombre = $bruh['nombre'];
@@ -201,11 +201,11 @@ if(mysqli_num_rows($consulta)<= 0){
 						<fieldset class="step">
                             <legend>Aprobación o Rechazo de Solicitud</legend>
 							<p>
-                                <button><a class="enlace" <?php $update = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='aprobado' WHERE idSolicitud = '".$idSol."'");?> href='solicitudesPendientes.php'>Aprobar</a></button>
+                                <button><a class="enlace" <?php $update = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', checkeado ='aprobado', estado = 'finalizado' WHERE idSolicitud = '".$idSol."'");?> href='solicitudesPendientes.php'>Aprobar</a></button>
                             </p>
                             <br>
                             <p class="submit">
-                                <button><a class="enlace" <?php $updatee = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', estado ='rechazado' WHERE idSolicitud = '".$idSol."'");?>href='solicitudesPendientes.php'>Rechazar</a></button>
+                                <button><a class="enlace" <?php $updatee = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', checkeado ='rechazado', estado = 'finalizado' WHERE idSolicitud = '".$idSol."'");?>href='solicitudesPendientes.php'>Rechazar</a></button>
                             </p>
                             <br>
                         </fieldset>

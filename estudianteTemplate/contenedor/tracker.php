@@ -3,7 +3,7 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE solicitud = '1' AND correo = '".$user."'");
+$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE estado = 'pendiente' AND correo = '".$user."'");
 
 if(mysqli_num_rows($consulta) !== 1)
 {
@@ -19,25 +19,31 @@ while($bruh = mysqli_fetch_array($consulta)){
     $unidad = $bruh['unidadAcademica'];
     $fechaini = $bruh['fechaInicial'];
     $fechafin = $bruh['fechaFinal'];
+    $estado = $bruh['estado'];
+    $checkeado = $bruh['checkeado'];
 }
 
-$consultabruh = mysqli_query($conexion,"SELECT rev_secretaria,rev_comite,rev_rector FROM solicitud WHERE idSolicitud = '".$idSol."'");
+$consultabruh = mysqli_query($conexion,"SELECT rev_secretaria,rev_comite,rev_rector FROM solicitud WHERE idSolicitud = '".$idSol."' AND estado = 'pendiente' ");
 
 while($bruhh = mysqli_fetch_array($consultabruh)){
     $sec = $bruhh['rev_secretaria'];
     $com = $bruhh['rev_comite'];
     $rec = $bruhh['rev_rector'];
 }
-if($sec = 1){
-    $secr= 3;
-}
+if($sec = 1 AND $com != 1 AND $rec != 1){
+    $secr= 33.33;
+    $comi= 0; 
+    $rect =0;
 
-if($com = 1){
-    $comi= 33.33;
-}
+} else if($sec = 1 AND $com = 1 AND $rec != 1){
+    $secr= 33.33;
+    $comi = 33.33;
+    $rect =0;
 
-if($rec = 1){
-    $rect= 33.33;
+} else if($sec = 1 AND $com = 1 AND $rec = 1){
+    $secr= 33.33;
+    $comi = 33.33;
+    $rect = 33.33;
 }
 ?>
 <!doctype html>
@@ -76,7 +82,7 @@ if($rec = 1){
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <img src="assets/images/logo14.png" class="logo-brand" alt="logo">
+            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
@@ -128,7 +134,7 @@ if($rec = 1){
     <!-- <section id="hero">
     <div class="progress">
     <div class="content-center">
-        <h2 class="margintop-lg"><?php echo $nombreEvento; ?></h2>
+       
         <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
          <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
         <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
@@ -139,22 +145,25 @@ if($rec = 1){
     <>
     <div class="content-center">
     <section id="tracker">
-    <h2>hola</h2>
+        <div class="content-center">
+            <span><>
+        </div>
+    
      <div class="progress content-center">
-            <div class="progress-bar" role="progressbar" style="width:<?php$secr?>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
-            <div class="progress-bar bg-success" role="progressbar" style="width: <?php$comi?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
-            <div class="progress-bar bg-info" role="progressbar" style="width: <?php$rect?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
-            <?php echo ?>
+            <div class="progress-bar" role="progressbar" style="width:<?php echo $secr;?>%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: <?php echo $comi;?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: <?php echo $rect;?>%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
+          
           </div>
           </section>
     
-
+          <h2 class="margintop-lg"><?php echo $checkeado; ?></h2>
 </div>
 
 
     <footer class="bgDark">
             <div class="container">
-                <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
+                <img src="../assets/images/logo1.png" class="logo-brand" alt="logo">
                  <ul class="list-inline">
                     <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
                     <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
