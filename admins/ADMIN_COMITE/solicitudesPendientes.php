@@ -3,6 +3,12 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = 'secretaria'");
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedula = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];}
 ?>
 
 
@@ -96,7 +102,8 @@ $user = $_SESSION['user'];
                 <div class="solicitudes">
                         <ol>
                             <li>
-                                <a href="verSolPendiente.php">Solicitud 1: Futura Estrella LigaMX</a>
+                            <?php echo $idSol ," ", $nombreEvento ," ", $nombre," ", $cedula," ";?><br/>
+                                <a href="verSolPendiente.php">Ver Datos</a>
                             </li>
                             <li>
                                 <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>

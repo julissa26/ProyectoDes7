@@ -1,7 +1,19 @@
 <?php
 include ('../validar.php');
 include ('conexion.php');
+include ('solicitudesPendientes.php');
 $user = $_SESSION['user'];
+
+$consulta = mysqli_query($conexion, "SELECT idSolicitud,unidadAcademica,fechaInicial,fechaFinal, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = '' AND idSolicitud = '".$idSol."' ");
+while ($bruh = mysqli_fetch_array($consulta)){
+    $cedula = $bruh['cedula'];
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+   $nombreEvento = $bruh['nombreEvento'];
+   $unidad = $bruh['unidadAcademica'];
+   $fechaini = $bruh['fechaInicial'];
+   $fechafin = $bruh['fechaFinal'];
+}
 
 ?>
 
@@ -12,9 +24,7 @@ $user = $_SESSION['user'];
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta name="author" content="Diego Velázquez">
-    <meta name="description" content="Smart Agency is a one page responsive Bootstrap 4 template. This is a free open source theme, you can use our theme for any purpose, even commercially. Create amazing websites with this easy to customize template."> -->
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -78,7 +88,7 @@ $user = $_SESSION['user'];
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -97,15 +107,15 @@ $user = $_SESSION['user'];
 								<legend>INFORMACIÓN DE LOS ESTUDIANTES:</legend>
                             <p>
                                 <label for="nombre">NOMBRE: </label><br>
-                                <input id="nombre" name="nombre" placeholder="Andrés Ramos" disabled/>
+                                <input id="nombre" name="nombre" placeholder=<?php echo $nombre?> disabled/>
                             </p>
                             <p>
                                 <label for="cedula">CÉDULA: </label><br>
-                                <input id="cedula" name="cedula" placeholder="02-0437-02480" type="text" AUTOCOMPLETE=OFF disabled />
+                                <input id="cedula" name="cedula" placeholder=<?php echo $cedula?> type="text" AUTOCOMPLETE=OFF disabled />
                             </p>
                             <p>
                                 <label for="unidadaca">UNIDAD ACADÉMICA: </label><br>
-                                <input id="unidadaca" name="unidadaca" type="text" disabled />
+                                <input id="unidadaca" name="unidad" type="text" placeholder=<?php echo $unidad?> disabled />
                             </p>
                         </fieldset>
 
@@ -114,15 +124,15 @@ $user = $_SESSION['user'];
                             <legend>Datos sobre el Evento</legend>
                             <p>
                                 <label for="nombreeve">NOMBRE DEL EVENTO: </label><br>
-                                <input id="nombreeve" name="nombreeve" type="text" placeholder="Futura estrella LigaMX" disabled />
+                                <input id="nombreeve" name="nombreeve" type="text" placeholder=<?php echo $nombreEvento?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                                <input id="fecha" name="fechaini" type="text" placeholder="07/07/2019" disabled />
+                                <input id="fecha" name="fechaini" type="text" placeholder=<?php echo $fechaini?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                                <input id="fecha2" name="fechafin" type="text" placeholder="10/07/2019" disabled />
+                                <input id="fecha2" name="fechafin" type="text" placeholder=<?php echo $fechafin?> disabled />
                             </p>
                             <p>
                                 <label for="justi">JUSTIFICACIÓN Y BENEFICIOS DE LA PARTICIPACIÓN: </label>
@@ -183,10 +193,10 @@ $user = $_SESSION['user'];
 						<fieldset class="step">
                             <legend>Aprobar/Devolver</legend>
 							<p>
-                                <button><a class="enlace" href="formularioComite.html">Aprobar</a></button>
+                        <button><a class="enlace" <?php $insertar =mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'"); ?>>Aprobar</a></button>
 							</p>
                             <p class="submit">
-                                <button><a class="enlace" href="devolverSolicitud.html">Devolver</a></button>
+                                <button><a class="enlace"  <?php $consulta3=mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'");?>href="devolverSolicitud.html">Devolver</a></button>
                             </p>
                         </fieldset>
                     </form>

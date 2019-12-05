@@ -38,7 +38,7 @@ $user = $_SESSION['user'];
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <img src="assets/images/logo14.png" class="logo-brand" alt="logo">
+            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
@@ -178,7 +178,7 @@ $user = $_SESSION['user'];
                             
                                <p>
                                 MONTO DE INSCRIPCIÓN: <br>
-                                <input id="nombreeve" name="nombreeve" type="text" style="   width: 112px;"/><br>	
+                                <input id="nombreeve" name="nombreeve" type="text" style="width: 112px;"/><br>	
                                  MONTO DE GASTOS DE VIAJE: <br>
                                  <input id="fecha" name="fechaini" type="text" style="   width: 112px;"/><br>
                                  MONTO DE APOYO ECONÓMICO: <br>
@@ -202,15 +202,7 @@ $user = $_SESSION['user'];
 
     <footer class="bgDark">
             <div class="container">
-                <img src="../assets/images/logo1.png" class="logo-brand" alt="logo">
-               <!--  <ul class="list-inline">
-                    <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Acerca de Nosotros</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
-                </ul>
-                 -->
-                <small>©2019 All Rights Reserved.</small>
+                <small>©2019 Proyecto Semestral - Desarrollo VII.</small>
             </div>
         </footer>
 

@@ -26,17 +26,17 @@
                 }
             case 2:
                 {
-                    header('Location: ../ADMIN/ADMIN_SECRETARIA/index.html');
+                    header('Location: ../admins/ADMIN_SECRETARIA/index.php');
                     break;
                 }
             case 3:
                 {
-                    header('Location: ../ADMIN/ADMIN_COMITE/index.php');
+                    header('Location: ../admins/ADMIN_COMITE/index.php');
                     break;
                 }
             case 4:
                 {
-                    header('Location: ../ADMIN/ADMIN_RECTORIA/index.php');
+                    header('Location: ../admins/ADMIN_RECTORIA/index.php');
                     break;
                 }        
           }

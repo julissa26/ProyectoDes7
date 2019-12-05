@@ -1,14 +1,43 @@
 <?php
-include ('validar.php');
+include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
 $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE solicitud = '1' AND correo = '".$user."'");
 
-if(mysqli_num_rows($consulta) != 1)
+if(mysqli_num_rows($consulta) !== 1)
 {
    
     header('Location: home.php');
+}
+
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedula = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];
+    $unidad = $bruh['unidadAcademica'];
+    $fechaini = $bruh['fechaInicial'];
+    $fechafin = $bruh['fechaFinal'];
+}
+
+$consultabruh = mysqli_query($conexion,"SELECT rev_secretaria,rev_comite,rev_rector FROM solicitud WHERE idSolicitud = '".$idSol."'");
+
+while($bruhh = mysqli_fetch_array($consultabruh)){
+    $sec = $bruhh['rev_secretaria'];
+    $com = $bruhh['rev_comite'];
+    $rec = $bruhh['rev_rector'];
+}
+if($sec = 1){
+    $sec= 33.33;
+}
+
+if($com = 1){
+    $com= 33.33;
+}
+
+if($rec = 1){
+    $rec= 33.33;
 }
 ?>
 <!doctype html>
@@ -27,6 +56,7 @@ if(mysqli_num_rows($consulta) != 1)
 
     <!-- Style -->
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="tr.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -55,7 +85,7 @@ if(mysqli_num_rows($consulta) != 1)
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
+                        <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,7 +117,6 @@ if(mysqli_num_rows($consulta) != 1)
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Historial</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="salir.php" id="salir">Cerrar Sesión</a>
                     </div>
@@ -96,11 +125,29 @@ if(mysqli_num_rows($consulta) != 1)
             </div>
         </div>
     </nav>
-    <div class="bruh">
-        <div class="progress-bar-wrapper"></div>
+    <!-- <section id="hero">
+    <div class="progress">
+    <div class="content-center">
+        <h2 class="margintop-lg"><?php echo $nombreEvento; ?></h2>
+        <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+         <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    </div>
+    </section> -->
 
-        <script src="../js/progress-bar.js"></script>
-        <script src="../js/app.js"></script>
+    <>
+    <div class="content-center">
+    <section id="tracker">
+    <h2>hola</h2>
+     <div class="progress content-center">
+            <div class="progress-bar" role="progressbar" style="width:<?php$sec?>" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">secretaria</div>
+            <div class="progress-bar bg-success" role="progressbar" style="width: <?php$com?>%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Comite</div>
+            <div class="progress-bar bg-info" role="progressbar" style="width: 33.33%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">Rectoria</div>
+          </div>
+          </section>
+    
+
 </div>
 
 

@@ -3,6 +3,14 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = 'secretaria'");
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedula = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];
+}
+
 ?>
 
 
@@ -79,7 +87,7 @@ $user = $_SESSION['user'];
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -95,7 +103,8 @@ $user = $_SESSION['user'];
             <div class="solicitudes">
                     <ol>
                         <li>
-                            <a href="#">Informe 1: Futura Estrella LigaMX</a>
+                        <?php echo $idSol ," ", $nombreEvento ," ", $nombre," ", $cedula," ";?><br/>
+                                <a href="verSolPendiente.php">Ver Datos</a>
                         </li>
                         <li>
                             <a href="#">Informe 2: Torneo Internacional de Ajedrez Colombia 2019</a>

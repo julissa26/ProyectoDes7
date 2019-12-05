@@ -2,7 +2,14 @@
 include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
+include ('solicitudesPendientes.php');
+include ('enviarFormComite.php');
 
+$consultaa = mysqli_query($conexion,"SELECT idSolicitud FROM solicitud WHERE idSolicitud = '".$idSol."'");
+
+while($bruh = mysqli_fetch_array($consultaa)){
+    $idSoli = $bruh['idSolicitud'];
+    }
 ?>
 
 <!doctype html>
@@ -92,7 +99,7 @@ $user = $_SESSION['user'];
                         <h2 class="margintop-lg">Formulario Comité</h2>
                     </div>
                 </duv>
-                <form class="formFinal" name="formFinal" action="" method="post">
+                <form class="formFinal" name="formFinal" action="enviarFormComite.php" method="post">
                         <fieldset class="step">
                                 <legend>Para Uso del Commité Evaluador</legend>
                                 <p>
@@ -103,16 +110,12 @@ $user = $_SESSION['user'];
                                 </p>
                                 <p>
                                     <label for="procede">PROCEDE: </label><br>
-                                    <input id="procede" name="procede" type="radio" type="yes" />SÍ
-                                    <input id="procede" name="procede" type="radio" type="no" />NO
+                                    <input id="procede" name="procede" type="radio" type="yes" value="si"  />SÍ
+                                    <input id="procede" name="procede" type="radio" type="no" value="no" />NO
                                 </p>
                                 <p>
                                     <label for="observaciones">OBSERVACIONES Y RECOMENDACIONES DEL COMITÉ EVALUADOR: </label>
                                     <textarea name="observaciones" rows="6" cols="100"></textarea>
-                                </p>
-                                <p>
-                                    <label for="firma">FIRMA DE LOS MIEMBROS DEL COMITÉ EVALUADOR: </label><br>
-                                    <input id="firma" name="firma" type="text" />
                                 </p>
                                 <p>
                                     <label for="fecha">FECHA: </label><br>
@@ -121,11 +124,12 @@ $user = $_SESSION['user'];
                             </fieldset>
 
                             <fieldset class="step">
-                                    <legend>Confirmar</legend>
+                                    <legend>Recomendar / No Recomendar</legend>
                                     <p class="submit">
-                                        <button id="registerButton" type="submit">Enviar</button>
+                                        <button id="registerButton" <?php $consu=mysqli_query($conexion,"UPDATE solicitud SET recomienda = 'si' WHERE idSolicitud = '".$idSol."'");?>  type="submit">Recopmendar</button>
                                     </p>
                                 </fieldset>
+                                
                     </form>
     </section>
 

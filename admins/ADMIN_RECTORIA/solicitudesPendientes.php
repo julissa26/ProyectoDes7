@@ -3,6 +3,17 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento,  unidadAcademica,fechaInicial, fechaFinal FROM solicitud WHERE  solicitud = '1' AND estado = 'comite'");
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedula = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];
+    $unidad = $bruh['unidadAcademica'];
+    $fechaini = $bruh['fechaInicial'];
+    $fechafin = $bruh['fechaFinal'];
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -112,7 +123,8 @@ $user = $_SESSION['user'];
                             <tr>
                                 <ul>   
                                     <td>
-                                        <a href="verSolPendiente.php">Solicitud 1: Futura Estrella LigaMX</a>
+                                    <?php echo $idSol ," ", $nombreEvento ," ", $nombre," ", $cedula," ";?><br/>
+                                <a href="verSolPendiente.php">Ver Datos</a>
                                     </td>
                                     <td>
                                         <p><label for="fecha">14/04/19 </label></p>

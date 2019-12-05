@@ -3,6 +3,18 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento, unidadAcademica,fechaInicial, fechaFinal FROM solicitud WHERE  solicitud = '1' AND estado = 'secretaria'");
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSol = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedula = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];
+    $unidad = $bruh['unidadAcademica'];
+    $fechaini = $bruh['fechaInicial'];
+    $fechafin = $bruh['fechaFinal'];
+}
+
+
 ?>
 
 
@@ -79,7 +91,7 @@ $user = $_SESSION['user'];
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -98,15 +110,15 @@ $user = $_SESSION['user'];
 								<legend>INFORMACIÓN DE LOS ESTUDIANTES:</legend>
                             <p>
                                 <label for="nombre">NOMBRE: </label><br>
-                                <input id="nombre" name="nombre" placeholder="Andrés Ramos" disabled/>
+                                <input id="nombre" name="nombre" placeholder=<?php echo $nombre?> disabled/>
                             </p>
                             <p>
                                 <label for="cedula">CÉDULA: </label><br>
-                                <input id="cedula" name="cedula" placeholder="02-0437-02480" type="text" AUTOCOMPLETE=OFF disabled />
+                                <input id="cedula" name="cedula" placeholder=<?php echo $cedula?> type="text" AUTOCOMPLETE=OFF disabled />
                             </p>
                             <p>
                                 <label for="unidadaca">UNIDAD ACADÉMICA: </label><br>
-                                <input id="unidadaca" name="unidadaca" type="text" disabled />
+                                <input id="unidadaca" name="unidad" type="text" placeholder=<?php echo $unidad?> disabled />
                             </p>
                         </fieldset>
 
@@ -115,15 +127,15 @@ $user = $_SESSION['user'];
                             <legend>Datos sobre el Evento</legend>
                             <p>
                                 <label for="nombreeve">NOMBRE DEL EVENTO: </label><br>
-                                <input id="nombreeve" name="nombreeve" type="text" placeholder="Futura estrella LigaMX" disabled />
+                                <input id="nombreeve" name="nombreeve" type="text" placeholder=<?php echo $nombreEvento?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                                <input id="fecha" name="fechaini" type="text" placeholder="07/07/2019" disabled />
+                                <input id="fecha" name="fechaini" type="text" placeholder=<?php echo $fechaini?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                                <input id="fecha2" name="fechafin" type="text" placeholder="10/07/2019" disabled />
+                                <input id="fecha2" name="fechafin" type="text" placeholder=<?php echo $fechafin?> disabled />
                             </p>
                             <p>
                                 <label for="justi">JUSTIFICACIÓN Y BENEFICIOS DE LA PARTICIPACIÓN: </label>
@@ -182,13 +194,13 @@ $user = $_SESSION['user'];
 						
                         </fieldset>
 						<fieldset class="step">
-                            <legend>Recomendar</legend>
+                            <legend>Recomendar/No Recomendar</legend>
 							<p>
-                                <button><a class="enlace" href="formularioComite.php">Recomendar</a></button>
+                                <button><a class="enlace"  href="formularioComite.php">Recomendar</a></button>
                             </p>
                             <br>
                             <p class="submit">
-                                <button><a class="enlace" href="devolverSolicitud.php">No Recomendar</a></button>
+                                <button><a class="enlace"<?php $consu=$conexion->prepare("UPDATE solicitud SET recomienda = 'no' WHERE idSolicitud = '".$idSol."'");?> href="formularioComite.php">No Recomendar</a></button>
                             </p>
                             <br>
                         </fieldset>
