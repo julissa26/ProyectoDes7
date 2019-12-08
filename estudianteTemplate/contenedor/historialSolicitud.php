@@ -1,3 +1,17 @@
+<?php
+include ('../../validar.php');
+include ('conexion.php');
+$user = $_SESSION['user'];
+
+$consulta = mysqli_query($conexion,"SELECT * FROM SOLICITUD WHERE correo = '".$user."'");
+
+while($bruh = mysqli_fetch_array($consulta)){
+    $cedula = $bruh['cedula'];
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -13,8 +27,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Style -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/formulario.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/formulario.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -23,15 +37,25 @@
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
 
     <!--logo de la pestaña -->
-    <link rel="shortcut icon" href="assets/images//logo.png" />
+    <link rel="shortcut icon" href="../assets/images//logo.png" />
 
     <title>UTP-Proyecto</title>
 </head>
+<style type="text/css"> 
+    table,th,td{
+        border:1px solid purple;
+        border-collapse: collapse;
+               }
 
+    th,td{
+        padding: 15px;
+        font-size:small;
+         }       
+</style>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <img src="assets/images/logo14.png" class="logo-brand" alt="logo">
+            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
@@ -40,28 +64,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="plantilla.html">Home</a>
+                        <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="nuevaSolicitud.html" id="nuevaSol">Nueva Solicitud</a>
-                          <a class="dropdown-item" href="tracker.html" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="entregarInforme.html" id="entregarInfo">Entregar</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -70,9 +82,8 @@
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Historial</a>
+                     
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -81,26 +92,26 @@
     </nav>
 
     <section id="solicitudes">
-            <duv class="container">
-                    <div class="content-center">
-                        <h2 class="margintop-lg">Solicitudes</h2>
-                    </div>
-                </duv>
-                <div class="solicitudes">
+        <duv class="container">
+                <div class="content-center">
+                    <h2 class="margintop-lg">Historial de Solicitudes</h2>
+                </div>
+            </duv>
+            <div class="solicitudes">
+                <p>
+                <form class="formFinal" name="formFinal" action="buscarEstudiante.php" method="post">
+                    <label for="cedula">CÉDULA DEL ESTUDIANTE: </label><br>
+                    <input id="cedula" name="cedula" value="<?php echo $cedula;?>" type="text" AUTOCOMPLETE=OFF readonly/>
+                </p> 
+                <br>
+                    <p class="submit">
+                        <button><a class="enlace" >Buscar</a></button>
+                    </p>
+                <br>   
                         <ol>
-                            <li>
-                                <a href="verSolPendiente.html">Solicitud 1: Futura Estrella LigaMX</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                            </li>
+                        
                         </ol>
+                        </form>
                     </div>
     </section>
 

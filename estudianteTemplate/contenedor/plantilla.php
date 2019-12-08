@@ -1,7 +1,7 @@
 <?php
 require ('../fpdf/fpdf.php');
 include ('conexion.php');
-include ('../validar.php');
+include ('../../validar.php');
 
 $cedula = $_SESSION['user'];
 

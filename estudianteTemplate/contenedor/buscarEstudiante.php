@@ -2,22 +2,24 @@
 include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
-
-$consult= mysqli_query($conexion,"SELECT cedula FROM usuario WHERE email = '".$user."' ");
-
-while($bruh = mysqli_fetch_array($consult)){
-    $ced = $bruh['cedula'];
-}
+$ced = $_POST['cedula'];
 
 
-$consulta = mysqli_query($conexion,"SELECT nombre, apellido, email, contra FROM usuario WHERE cedula = '".$ced."'");
+$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$ced."'");
 
-while($bruh = mysqli_fetch_array($consulta)){
-    $nombre = $bruh ['nombre'];
-    $apellido = $bruh ['apellido'];
-    $email = $bruh ['email'];
-    $contra = $bruh ['contra'];
-}
+
+   if(mysqli_num_rows($consulta)<= 0){
+    $idSol = "Estudiante sin ninguna Solicitud.";
+    $nombre = '';
+    $cedula = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
+}  
+
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,6 +37,7 @@ while($bruh = mysqli_fetch_array($consulta)){
 
     <!-- Style -->
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/formulario.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -43,15 +46,25 @@ while($bruh = mysqli_fetch_array($consulta)){
     <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
 
     <!--logo de la pestaña -->
-    <link rel="shortcut icon" href="../assets/images/logo.png" />
+    <link rel="shortcut icon" href="../assets/images//logo.png" />
 
     <title>UTP-Proyecto</title>
 </head>
+<style type="text/css"> 
+    table,th,td{
+        border:1px solid purple;
+        border-collapse: collapse;
+               }
 
+    th,td{
+        padding: 15px;
+        font-size:small;
+         }       
+</style>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <img src="assets/images/logo14.png" class="logo-brand" alt="logo">
+            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="icon ion-md-menu"></i>
@@ -67,21 +80,9 @@ while($bruh = mysqli_fetch_array($consulta)){
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
-                          <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="entregarInforme.php" id="entregarInfo">Entregar</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -90,55 +91,65 @@ while($bruh = mysqli_fetch_array($consulta)){
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="salir.php" id="salir">Cerrar Sesión</a>
+                     
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <section id="hero">
+    <section id="solicitudes">
         <duv class="container">
-            <div class="content-center">
-
-    
-                <h2 class="margintop-lg">PERFIL ESTUDIANTE</h2> 
-                
-                
-    <form action="modificar.php" method="POST">
-        <h2 class="margintop-lg"><?php echo $nombre; echo $apellido;?> </h2>
-        Introduzca su Contraseña:<br/>
-        <input type="password" name="contra" /><br/>
-
-        Correo:</br>
-        <input type="text" name="email" value="<?php echo $email; ?>"><br/>
-
-        <br/><input type="submit" value="Actualizar"/>
-    </form>
-
-            
+                <div class="content-center">
+                    <h2 class="margintop-lg">Historial de Solicitudes</h2>
+                </div>
+            </duv>
+            <div class="solicitudes">
+            <table> 
+                            <tr>
+                                <th> Solicitud:</th>
+                                <th><label for="fecha">Fecha: </label></th>
+                                <th><label for="estado">Estado: </label></th>
+                            </tr>
+                            <?php while ($bruh = mysqli_fetch_array($consulta)){?>
+                            <tr>
+                                <ul>   
+                                    <td>
+                                        <a href="verSolPendiente.php"><?php echo $nombreEvento= $bruh['nombreEvento'];?></a>
+                                    </td>
+                                    <td>
+                                        <p><label for="fecha"><?php echo $fechaini = $bruh['fechaInicial']; ?> </label></p>
+                                    </td>   
+                                     <td>
+                                        <p><label for="estado"><?php echo $checkeado = $bruh['checkeado'];?> </label></p>
+                                    </td>
+                                </ul>
+                            </tr>
+                            <?php }?>
+                           
+                       
+                    </p>
+                        </table>
+                        <br>
+                        <br>
+                        <p class="submit">
+                        <button><a class="enlace" href="historialSolicitud.php">Volver</a></button>
+                       </div>  
+                     </section>  
+                        <footer class="bgDark">
+            <div class="container">
+                <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
+               <!--  <ul class="list-inline">
+                    <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
+                    <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
+                    <li class="list-inline-item footer-menu"><a href="#">Acerca de Nosotros</a></li>
+                    <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
+                </ul>
+                 -->
+                <small>©2019 All Rights Reserved.</small>
             </div>
-        </duv>
-    </section>
-
-    
-
-    <footer class="bgDark">
-        <div class="container">
-            <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
-           <!--  <ul class="list-inline">
-                <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Acerca de Nosotros</a></li>
-                <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
-            </ul>
-             -->
-            <small>©2019 All Rights Reserved.</small>
-        </div>
-    </footer>
+        </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -153,4 +164,4 @@ while($bruh = mysqli_fetch_array($consulta)){
         crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html>                       

@@ -1,7 +1,7 @@
 <?php
 
 include ('conexion.php');
-include ('../validar.php');
+include ('../../validar.php');
 $user = $_SESSION['user'];
 
 $consulta = mysqli_query($conexion,"SELECT nombre, apellido, email, contra FROM usuario WHERE email = '".$user."'");
