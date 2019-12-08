@@ -17,18 +17,19 @@ $tipoeve = $_POST['tipoeve'];
 
 if($_POST['apoyoEspecial'] != ""){
     if(is_array($_POST['apoyoEspecial'])){
-        while(list($key,$value) = each($_POST['apoyoEspecial'])){
-            $sql=$conexion->prepare ("INSERT INTO solicitud (apoyoEspecial) VALUES ('".$value."')");
+        while(list($value) = each($_POST['apoyoEspecial'])){
+            $sql=$conexion->prepare ("UPDATE ch SET apoyoEspecial ='".$value."', nombreEvento ='".$nombreeve."'");
             $sql->execute();
+            //$consultaa = mysqli_query($conexion,"SELECT ")
         }
 }
 }
 
 if($_POST['apoyo'] != ""){
     if(is_array($_POST['apoyo'])){
-        while(list($key,$value) = each($_POST['apoyo'])){
+        while(list($value) = each($_POST['apoyo'])){
             //AGREGAR UPDATE
-            $sql=$conexion->prepare("INSERT INTO solicitud (apoyo) VALUES ('".$value."')");
+            $sql=$conexion->prepare("UPDATE ch SET apoyo = '".$value."', nombreEvento ='".$nombreeve."'");
             $sql->execute();
 
         }

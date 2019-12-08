@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 03:46 AM
+-- Generation Time: Dec 08, 2019 at 11:51 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -29,10 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ch` (
-  `cedula` text NOT NULL,
-  `idSolicitud` varchar(20) NOT NULL,
   `apoyoEspecial` text NOT NULL,
-  `apoyo` text NOT NULL
+  `apoyo` text NOT NULL,
+  `nombreEvento` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -72,6 +71,7 @@ CREATE TABLE `solicitud` (
   `idSolicitud` int(11) NOT NULL,
   `nombre` text NOT NULL,
   `cedula` varchar(20) NOT NULL,
+  `correo` text NOT NULL,
   `unidadAcademica` text NOT NULL,
   `nombreEvento` text NOT NULL,
   `fechaInicial` varchar(20) NOT NULL,
@@ -79,28 +79,28 @@ CREATE TABLE `solicitud` (
   `comentarios` text NOT NULL,
   `tipoEve` text NOT NULL,
   `alcanceEve` text NOT NULL,
-  `apoyoEspecial` text NOT NULL,
-  `apoyo` text NOT NULL,
+  `checkeado` text NOT NULL,
   `estado` text NOT NULL,
-  `rev_secretaria` varchar(10) DEFAULT NULL,
-  `rev_comite` varchar(10) DEFAULT NULL,
-  `rev_rector` varchar(10) DEFAULT NULL
+  `solicitud` int(11) NOT NULL,
+  `rev_secretaria` int(11) DEFAULT 0,
+  `rev_comite` int(11) DEFAULT 0,
+  `rev_rector` int(11) DEFAULT 0,
+  `relevancia` text NOT NULL,
+  `observaciones` varchar(60) NOT NULL,
+  `comentarioRectoria` text NOT NULL,
+  `recomienda` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `solicitud`
 --
 
-INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `unidadAcademica`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `apoyoEspecial`, `apoyo`, `estado`, `rev_secretaria`, `rev_comite`, `rev_rector`) VALUES
-(21, 'Jojhan Arboleda', '8', 'FISC', '1', '1', '07-01-2020', 'e', '', '', '', '', '', NULL, NULL, NULL),
-(22, 'Jojhan Arboleda', '8-939-629', 'FISC', '122', '124', '07-01-2020', 'muchos', '', '', '', '', '', NULL, NULL, NULL),
-(23, 'pedro', '8', 'f', '1', '1', '07-01-2020', 'njn', '', '', '', '', '', NULL, NULL, NULL),
-(24, '', '', '', '', '', '', '', '', '', 'Inscripcion', '', '', NULL, NULL, NULL),
-(25, '', '', '', '', '', '', '', '', '', 'Hospedaje', '', '', NULL, NULL, NULL),
-(26, '', '', '', '', '', '', '', '', '', 'Gastos de Viaje', '', '', NULL, NULL, NULL),
-(27, '', '', '', '', '', '', '', '', '', '', 'inscripcion', '', NULL, NULL, NULL),
-(28, '', '', '', '', '', '', '', '', '', '', 'apoyoEconomico ', '', NULL, NULL, NULL),
-(29, 'pedro', '9', 'FISC', '1', '1', '07-01-2020', 'bfk', '', '', '', '', '', NULL, NULL, NULL);
+INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `correo`, `unidadAcademica`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `checkeado`, `estado`, `solicitud`, `rev_secretaria`, `rev_comite`, `rev_rector`, `relevancia`, `observaciones`, `comentarioRectoria`, `recomienda`) VALUES
+(21, 'Jojhan Arboleda', '8', 'jojhan77@email.com', 'FISC', 'Evento deportivo', '1', '07-01-2020', 'e', '', '', 'aprobado', 'finalizado', 1, 1, 1, 1, 'alto', '', '', 'si'),
+(22, 'Jojhan Arboleda', '8-939-629', '', 'FISC', '122', '124', '07-01-2020', 'muchos', '', '', '', '', 0, NULL, NULL, NULL, '', '', '', ''),
+(23, 'pedro', '8', '', 'f', '1', '1', '07-01-2020', 'njn', '', '', 'bruh', '', 0, NULL, NULL, NULL, '', '', '', ''),
+(31, 'Juan Perez', '8-969-999', 'jojhan77@email.com', 'FISC', 'BRUH FESTsdd', '01-01-2020', '01-01-2021', 'sdshdhshd', '', '', 'aprobado', 'finalizado', 1, 1, 1, 1, '', '', '', ''),
+(32, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 1', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', 'pendiente', 1, 0, 0, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idSolicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

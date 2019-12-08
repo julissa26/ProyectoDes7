@@ -10,6 +10,7 @@ while($bruh = mysqli_fetch_array($consulta)){
     $apellido = $bruh['apellido'];
     $cedula = $bruh['cedula'];
     $email = $bruh['correo'];
+
 }
 ?>
 
@@ -108,15 +109,15 @@ while($bruh = mysqli_fetch_array($consulta)){
 								<legend>INFORMACIÓN DE LOS ESTUDIANTES:</legend>
                             <p>
                                 <label for="nombre">NOMBRE: </label><br>
-                                <input id="nombre" name="nombre" placeholder="<?php echo $nombre, $apellido;?>"  type="text"/>
+                                <input id="nombre" name="nombre" value="<?php echo $nombre, $apellido;?>"  type="text" readonly/>
                             </p>
                             <p>
                                 <label for="cedula">CÉDULA: </label><br>
-                                <input id="cedula" name="cedula" placeholder="<?php echo $cedula;?>" type="text"  AUTOCOMPLETE=OFF />
+                                <input id="cedula" name="cedula" value="<?php echo $cedula;?>" type="text"  AUTOCOMPLETE=OFF readonly />
                             </p>
                             <p>
                                 <label for="unidadaca">UNIDAD ACADÉMICA: </label><br>
-                                <input id="unidadaca" name="unidadaca" type="text"  />
+                                <input id="unidadaca" name="unidadaca"  type="text"  />
                             </p>
                              <p>
                                  <br>

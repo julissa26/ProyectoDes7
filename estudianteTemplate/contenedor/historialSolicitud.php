@@ -3,7 +3,7 @@ include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion,"SELECT * FROM SOLICITUD WHERE correo = '".$user."'");
+$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE correo = '".$user."'");
 
 while($bruh = mysqli_fetch_array($consulta)){
     $cedula = $bruh['cedula'];

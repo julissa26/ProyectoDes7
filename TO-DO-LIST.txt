@@ -1,17 +1,19 @@
 
 //URGENTE//
-1. convertir a php las paginas que continuan como html 
-(agregar etiqueta al principio, agregar include)
-2. FINALIZAR ADMINS
-4. ver como agregar los checkboxs a la base de datos y los options 
+AGREGADO DE IMAGENES Y ARCHIVOS A BD
+1. Revisar Informes
+2. Verificar redireccion y comportamiendo de los botones en solicitud 
+3. Comentario de Rector
+4. Devolucion de Secretaria
+5. ver como agregar los checkboxs a la base de datos y los options 
 
 
 
 //MEDIO URGENTE :V // 
-3. ver como agregar estudiantes en los formularios de solicitud 
+
 5. agregar los FAQS a la index 
 6. terminar index con sus secciones 
-7. verificar conexiones en todas las paginas 
+7. Autocompletar datos que esten en la BD a campos en solicitud e Informe
 
 
 terminar cosas urgentes para comenzar el fin de semana con la organizacion de las carpetas 
