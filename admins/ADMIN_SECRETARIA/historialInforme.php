@@ -74,9 +74,8 @@ $user = $_SESSION['user'];
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                      
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>

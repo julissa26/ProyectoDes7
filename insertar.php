@@ -1,8 +1,8 @@
 <?php
 
-include ('conexionEst.php');
-include ('conexion.php');
-include ('contador.php');
+include ('estudianteTemplate/conexionEst.php');
+include ('estudianteTemplate/conexion.php');
+include ('estudianteTemplate/contador.php');
 
 $cedula=$_POST['cedula'];
 $email=$_POST['email'];

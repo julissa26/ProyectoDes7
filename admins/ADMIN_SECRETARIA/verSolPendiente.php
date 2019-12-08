@@ -4,7 +4,7 @@ include ('conexion.php');
 include ('solicitudesPendientes.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT idSolicitud,unidadAcademica,fechaInicial,fechaFinal, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND checkeado = '' AND idSolicitud = '".$idSol."' ");
+$consulta = mysqli_query($conexion, "SELECT idSolicitud,unidadAcademica,fechaInicial,fechaFinal, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = '' AND idSolicitud = '".$idSol."' ");
 while ($bruh = mysqli_fetch_array($consulta)){
     $cedula = $bruh['cedula'];
     $idSol = $bruh['idSolicitud'];
@@ -13,6 +13,16 @@ while ($bruh = mysqli_fetch_array($consulta)){
    $unidad = $bruh['unidadAcademica'];
    $fechaini = $bruh['fechaInicial'];
    $fechafin = $bruh['fechaFinal'];
+
+   if(mysqli_num_rows($consulta)<= 0){
+    $idSol = "Sin solicitud";
+    $nombre = '';
+    $cedula = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
+}  
 }
 
 ?>
@@ -64,7 +74,7 @@ while ($bruh = mysqli_fetch_array($consulta)){
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendiente.php" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
@@ -88,7 +98,7 @@ while ($bruh = mysqli_fetch_array($consulta)){
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -193,10 +203,10 @@ while ($bruh = mysqli_fetch_array($consulta)){
 						<fieldset class="step">
                             <legend>Aprobar/Devolver</legend>
 							<p>
-                        <button><a class="enlace" <?php $insertar =mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', checkeado='secretaria' WHERE idSolicitud = '".$idSol."'"); ?>>Aprobar</a></button>
+                        <button><a class="enlace" <?php $insertar =mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'"); ?>>Aprobar</a></button>
 							</p>
                             <p class="submit">
-                                <button><a class="enlace"  <?php $consulta3=mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', checkeado='secretaria' WHERE idSolicitud = '".$idSol."'");?>href="devolverSolicitud.html">Devolver</a></button>
+                                <button><a class="enlace"  <?php $consulta3=mysqli_query($conexion,"UPDATE solicitud SET rev_secretaria = '1', estado='secretaria' WHERE idSolicitud = '".$idSol."'");?>href="devolverSolicitud.html">Devolver</a></button>
                             </p>
                         </fieldset>
                     </form>

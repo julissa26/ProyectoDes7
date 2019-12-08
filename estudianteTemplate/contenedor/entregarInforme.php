@@ -3,7 +3,7 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = '1' AND correo = '".$user."'");
+$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."'");
     if(mysqli_num_rows($consulta) != 1)
     {
        

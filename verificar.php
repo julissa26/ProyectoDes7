@@ -1,5 +1,5 @@
 <?php
-  include ('contenedor/conexion.php');
+  include ('estudianteTemplate/contenedor/conexion.php');
   session_start();
   $user = $_POST['user'];
   $contraseña = $_POST['contraseña'];
@@ -21,22 +21,22 @@
           {
             case 1: 
                 {
-                    header('Location: contenedor/home.php');
+                    header('Location: estudianteTemplate/contenedor/home.php');
                     break;
                 }
             case 2:
                 {
-                    header('Location: ../admins/ADMIN_SECRETARIA/index.php');
+                    header('Location: admins/ADMIN_SECRETARIA/index.php');
                     break;
                 }
             case 3:
                 {
-                    header('Location: ../admins/ADMIN_COMITE/index.php');
+                    header('Location: admins/ADMIN_COMITE/index.php');
                     break;
                 }
             case 4:
                 {
-                    header('Location: ../admins/ADMIN_RECTORIA/index.php');
+                    header('Location: admins/ADMIN_RECTORIA/index.php');
                     break;
                 }        
           }

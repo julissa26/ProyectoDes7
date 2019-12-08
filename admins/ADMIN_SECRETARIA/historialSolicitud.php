@@ -3,8 +3,9 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-?>
 
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +13,9 @@ $user = $_SESSION['user'];
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <!-- <meta name="author" content="Diego Velázquez">
+    <meta name="description" content="Smart Agency is a one page responsive Bootstrap 4 template. This is a free open source theme, you can use our theme for any purpose, even commercially. Create amazing websites with this easy to customize template."> -->
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -32,7 +35,17 @@ $user = $_SESSION['user'];
 
     <title>UTP-Proyecto</title>
 </head>
+<style type="text/css"> 
+    table,th,td{
+        border:1px solid purple;
+        border-collapse: collapse;
+               }
 
+    th,td{
+        padding: 15px;
+        font-size:small;
+         }       
+</style>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -52,20 +65,9 @@ $user = $_SESSION['user'];
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendiente.php" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
                         </div>
                 </li>
 
@@ -74,9 +76,8 @@ $user = $_SESSION['user'];
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                     
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -84,11 +85,31 @@ $user = $_SESSION['user'];
         </div>
     </nav>
 
-    <br>
-    <br>
-    <br>
+    <section id="solicitudes">
+        <duv class="container">
+                <div class="content-center">
+                    <h2 class="margintop-lg">Historial de Solicitudes</h2>
+                </div>
+            </duv>
+            <div class="solicitudes">
+                <p>
+                <form class="formFinal" name="formFinal" action="buscarEstudiante.php" method="post">
+                    <label for="cedula">CÉDULA DEL ESTUDIANTE: </label><br>
+                    <input id="cedula" name="cedula" placeholder="00-0000-00000" type="text" AUTOCOMPLETE=OFF/>
+                </p> 
+                <br>
+                    <p class="submit">
+                        <button><a class="enlace" >Buscar</a></button>
+                    </p>
+                <br>   
+                        <ol>
+                        
+                        </ol>
+                        </form>
+                    </div>
+    </section>
 
-    <footer class="bgDark fixed-bottom">
+    <footer class="bgDark">
             <div class="container">
                 <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
                <!--  <ul class="list-inline">

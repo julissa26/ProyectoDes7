@@ -142,11 +142,11 @@ if($sec = 1 AND $com != 1 AND $rec != 1){
     </div>
     </section> -->
 
-    <>
+    
     <div class="content-center">
     <section id="tracker">
         <div class="content-center">
-            <span><>
+            <h2><?php echo $nombreEvento;?></h2>
         </div>
     
      <div class="progress content-center">
@@ -157,7 +157,7 @@ if($sec = 1 AND $com != 1 AND $rec != 1){
           </div>
           </section>
     
-          <h2 class="margintop-lg"><?php echo $checkeado; ?></h2>
+          <h2 class="margintop-lg">Su documento a sido visto por: <?php echo $checkeado; ?></h2>
 </div>
 
 

@@ -1,3 +1,31 @@
+<?php
+include ('../validar.php');
+include ('conexion.php');
+include ('buscarEstudiante.php');
+$user = $_SESSION['user'];
+
+
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento, unidadAcademica,fechaInicial, fechaFinal FROM solicitud WHERE  cedula = '".$cedula."' AND idSolicitud = '".$idSol."'");
+while($bruh = mysqli_fetch_array($consulta)){
+    $idSoli = $bruh['idSolicitud'];
+    $nombre = $bruh['nombre'];
+    $cedulaa = $bruh['cedula'];
+    $nombreEvento = $bruh['nombreEvento'];
+    $unidad = $bruh['unidadAcademica'];
+    $fechaini = $bruh['fechaInicial'];
+    $fechafin = $bruh['fechaFinal'];
+}
+
+if(mysqli_num_rows($consulta)<= 0){
+    $idSoli = "Sin solicitud";
+    $nombre = '';
+    $cedulaa = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -40,27 +68,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="homeAdmin.html">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendiente.html" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.html" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.html" id="entregarInfo">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.html" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -68,10 +85,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sesion
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.html" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -82,7 +96,7 @@
     <section id="fomulario">
             <duv class="container">
                     <div class="content-center">
-                        <h2 class="margintop-lg">Verificar Solicitud</h2>
+                        <h2 class="margintop-lg">Aprobación de Solicitud</h2>
                     </div>
                 </duv>
                 <form class="formFinal" name="formFinal" action="" method="post">
@@ -90,15 +104,15 @@
 								<legend>INFORMACIÓN DE LOS ESTUDIANTES:</legend>
                             <p>
                                 <label for="nombre">NOMBRE: </label><br>
-                                <input id="nombre" name="nombre" placeholder="Andrés Ramos" disabled/>
+                                <input id="nombre" name="nombre" type="text"  placeholder=<?php echo $nombre;?> disabled />
                             </p>
                             <p>
                                 <label for="cedula">CÉDULA: </label><br>
-                                <input id="cedula" name="cedula" placeholder="02-0437-02480" type="text" AUTOCOMPLETE=OFF disabled />
+                                <input id="cedula" name="cedula" type="text"  placeholder=<?php echo $cedulaa;?>  disabled />
                             </p>
                             <p>
                                 <label for="unidadaca">UNIDAD ACADÉMICA: </label><br>
-                                <input id="unidadaca" name="unidadaca" type="text" disabled />
+                                <input id="unidadaca" name="unidad" type="text" placeholder=<?php echo $unidad;?> disabled />
                             </p>
                         </fieldset>
 
@@ -107,15 +121,15 @@
                             <legend>Datos sobre el Evento</legend>
                             <p>
                                 <label for="nombreeve">NOMBRE DEL EVENTO: </label><br>
-                                <input id="nombreeve" name="nombreeve" type="text" placeholder="Futura estrella LigaMX" disabled />
+                                <input id="nombreeve" name="nombreeve" type="text" placeholder=<?php echo $nombreEvento?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                                <input id="fecha" name="fechaini" type="text" placeholder="07/07/2019" disabled />
+                                <input id="fecha" name="fechaini" type="text" placeholder=<?php echo $fechaini?> disabled />
                             </p>
                             <p>
                                 <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                                <input id="fecha2" name="fechafin" type="text" placeholder="10/07/2019" disabled />
+                                <input id="fecha2" name="fechafin" type="text" placeholder=<?php echo $fechafin?> disabled />
                             </p>
                             <p>
                                 <label for="justi">JUSTIFICACIÓN Y BENEFICIOS DE LA PARTICIPACIÓN: </label>
@@ -174,18 +188,13 @@
 						
                         </fieldset>
 						<fieldset class="step">
-                            <legend>Aprobar/Devolver</legend>
-							<p>
-                                <button><a class="enlace" href="formularioComite.html">Aprobar</a></button>
-							</p>
-                            <p class="submit">
-                                <button><a class="enlace" href="devolverSolicitud.html">Devolver</a></button>
-                            </p>
+
+                        <button><a class="enlace" href="solicitudesPendientes.php">Volver</a></button>
                         </fieldset>
                     </form>
     </section>
 
-    <footer class="bgDark fixed-bottom">
+    <footer class="bgDark">
             <div class="container">
                 <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
                <!--  <ul class="list-inline">

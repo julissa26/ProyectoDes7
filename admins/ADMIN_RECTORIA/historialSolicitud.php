@@ -3,6 +3,8 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -70,30 +72,19 @@ $user = $_SESSION['user'];
                 </li>
 
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                     
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <section id="solicitudes">
         <duv class="container">
                 <div class="content-center">
@@ -102,74 +93,19 @@ $user = $_SESSION['user'];
             </duv>
             <div class="solicitudes">
                 <p>
+                <form class="formFinal" name="formFinal" action="buscarEstudiante.php" method="post">
                     <label for="cedula">CÉDULA DEL ESTUDIANTE: </label><br>
                     <input id="cedula" name="cedula" placeholder="00-0000-00000" type="text" AUTOCOMPLETE=OFF/>
                 </p> 
                 <br>
                     <p class="submit">
-                        <button><a class="enlace" href="#">Buscar</a></button>
+                        <button><a class="enlace" >Buscar</a></button>
                     </p>
                 <br>   
                         <ol>
-                        <table> 
-                            <tr>
-                                <th> Solicitud:</th>
-                                <th><label for="fecha">Fecha: </label></th>
-                                <th><label for="estado">Estado: </label></th>
-                            </tr>
-                            <tr>
-                                <ul>   
-                                    <td>
-                                        <a href="verSolPendiente.php">Solicitud 1: Futura Estrella LigaMX</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">14/04/19 </label></p>
-                                    </td>   
-                                     <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul>
-                                    <td>
-                                        <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">10/05/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul><td>
-                                        <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha">08/06/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <tr>
-                                <ul>
-                                    <td>
-                                        <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                                    </td>                                    
-                                    <td>
-                                        <p><label for="fecha">04/10/19 </label></p>
-                                    </td>
-                                    <td>
-                                        <p><label for="estado">En Proceso </label></p>
-                                    </td>                                    
-                                </ul>
-                            </tr>
-                        </table> 
+                        
                         </ol>
+                        </form>
                     </div>
     </section>
 

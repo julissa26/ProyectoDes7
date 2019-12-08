@@ -6,5 +6,5 @@
 
     session_destroy();
     
-    header('Location: C:\xampp\htdocs\proyectoDes7\estudianteTemplate\index.php');
+    header('Location: index.php');
 ?>

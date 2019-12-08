@@ -79,23 +79,9 @@ if(mysqli_num_rows($consulta)<= 0){
                 </li>
 
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sesion
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
@@ -208,6 +194,8 @@ if(mysqli_num_rows($consulta)<= 0){
                                 <button><a class="enlace" <?php $updatee = mysqli_query($conexion,"UPDATE solicitud SET rev_rector = '1', checkeado ='rechazado', estado = 'finalizado' WHERE idSolicitud = '".$idSol."'");?>href='solicitudesPendientes.php'>Rechazar</a></button>
                             </p>
                             <br>
+                            <p class="submit">
+                        <button><a class="enlace" href="solicitudesPendientes.php">Volver</a></button>
                         </fieldset>
                     </form>
     </section>

@@ -9,6 +9,16 @@ while($bruh = mysqli_fetch_array($consulta)){
     $nombre = $bruh['nombre'];
     $cedula = $bruh['cedula'];
     $nombreEvento = $bruh['nombreEvento'];}
+
+    if(mysqli_num_rows($consulta)<= 0){
+        $idSol = "Sin solicitud";
+        $nombre = '';
+        $cedula = '';
+        $nombreEvento = '';
+        $unidad = '';
+        $fechaini = '';
+        $fechafin = '';
+    }    
 ?>
 
 
@@ -68,24 +78,11 @@ while($bruh = mysqli_fetch_array($consulta)){
                 </li>
 
                 <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sesion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -93,31 +90,57 @@ while($bruh = mysqli_fetch_array($consulta)){
         </div>
     </nav>
 
-    <section id="solicitudes">
+     <section id="fomulario">
             <duv class="container">
                     <div class="content-center">
-                        <h2 class="margintop-lg">Solicitudes</h2>
+                        <h2 class="margintop-lg">Solicitudes Pendientes</h2>
                     </div>
                 </duv>
-                <div class="solicitudes">
-                        <ol>
-                            <li>
-                            <?php echo $idSol ," ", $nombreEvento ," ", $nombre," ", $cedula," ";?><br/>
-                                <a href="verSolPendiente.php">Ver Datos</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 2: Torneo Internacional de Ajedrez Colombia 2019</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 3: Olimpiadas de Fisica Costa Rica</a>
-                            </li>
-                            <li>
-                                <a href="#">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</a>
-                            </li>
-                        </ol>
-                    </div>
-    </section>
+                <form class="formFinal" name="formFinal" action="" method="post">
+                        <fieldset class="step">
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title"><?php echo $idSol ," ", $nombreEvento ," ";?><br/></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por <?php echo $nombre," ", $cedula," ";?><br/></p>
+                            <a href="verSolPendiente.php" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
 
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Torneo Internacional de Ajedrez Colombia 2019</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Juan Samaniego.</p>
+                            <a href="#" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
+
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Olimpiadas de Fisica Costa Rica</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Jualissa Bello.</p>
+                            <a href="#" class="card-link">ver mas</a>
+                            </div>
+                            </div>
+                            <br>
+
+                            <div class="card" style="width: 45rem;">
+                            <div class="card-body">
+                            <h5 class="card-title">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
+                            <p class="card-text">Enviado por Johan Arboleda.</p>
+                            <a href="#" class="card-link">ver mas</a>                    
+                            </div>
+                            </div>
+                            <br>
+
+                        </fieldset>
+                    </form>
+    </section>
     <footer class="bgDark fixed-bottom">
             <div class="container">
                 <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
