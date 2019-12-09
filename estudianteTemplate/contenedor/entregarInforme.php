@@ -20,6 +20,7 @@ while($bruh = mysqli_fetch_array($query)){
     $participantes = $bruh['participantes'];
     $lugar = $bruh['lugarEvento'];
 }
+
 $participantes="";
 
 
@@ -123,23 +124,27 @@ $participantes="";
                 <legend>Datos sobre el Evento</legend>
                 <p>
                     <label for="nombreEve">NOMBRE DEL EVENTO: </label><br>
-                    <input id="nombreEve" name="nombreeve" value="<?php echo $nombreEve;?>" type="text" readonly />
+                    <input id="nombreEve" name="nombreEve" value="<?php echo $nombreEve;?>" type="text" readonly />
                 </p>
                 <p>
                     <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                    <input id="fecha1" name="fechaini" type="text" value="<?php echo $fechaIni;?>" readonly/>
+                    <input id="fecha1" name="fechaIni" type="text" value="<?php echo $fechaIni;?>" readonly/>
                 </p>
                 <p>
                     <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                    <input id="fecha2" name="fechafin" type="text" value="<?php echo $fechaFin ?>" readonly/>
+                    <input id="fecha2" name="fechaFin" type="text" value="<?php echo $fechaFin ?>" readonly/>
                 </p>
                 <p>
                     <label for="lugar">LUGAR DEL EVENTO: </label><br>
                     <input id="lugar" name="lugar" type="text" value="<?php echo $lugar ?>" readonly/>
                 </p>
                 <p>
+                    <label for="estudiante">ESTUDIANTE ENCARGADO: </label><br>
+                    <input id="estudiante" name="estudiante" type="text" value="<?php echo $nombre ?>" readonly/>
+                </p>
+                <p>
                     <label for="participante">PARTICIPANTE: </label><br>
-                    <textarea id="participante" name="participante" type="text" value="<?php echo $nombre, $participantes ?>" readonly ></textarea>
+                    <textarea id="participante" name="participante" type="text" value="<?php  $participantes ?>" readonly ></textarea>
                 </p>
             </fieldset>
             
