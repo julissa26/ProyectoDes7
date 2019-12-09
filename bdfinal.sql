@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2019 at 05:34 PM
+-- Generation Time: Dec 09, 2019 at 05:47 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -113,6 +113,7 @@ CREATE TABLE `solicitud` (
   `cedula` varchar(20) NOT NULL,
   `correo` text NOT NULL,
   `unidadAcademica` text NOT NULL,
+  `participantes` text NOT NULL,
   `nombreEvento` text NOT NULL,
   `fechaInicial` varchar(20) NOT NULL,
   `fechaFinal` varchar(20) NOT NULL,
@@ -140,34 +141,34 @@ CREATE TABLE `solicitud` (
 -- Dumping data for table `solicitud`
 --
 
-INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `correo`, `unidadAcademica`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `lugarEvento`, `montoInscripcion`, `montoGastoViaje`, `montoApoyoEco`, `checkeado`, `estado`, `solicitud`, `rev_secretaria`, `rev_comite`, `rev_rector`, `relevancia`, `observaciones`, `comentarioRectoria`, `recomienda`, `informe`) VALUES
-(21, 'Jojhan Arboleda', '8', 'jojhan77@email.com', 'FISC', 'Evento deportivo', '1', '07-01-2020', 'e', '', '', '', '0', '0', '0', 'aprobado', 'finalizado', 1, 1, 1, 1, 'alto', '', '', 'si', 0),
-(22, 'Jojhan Arboleda', '8-939-629', '', 'FISC', '122', '124', '07-01-2020', 'muchos', '', '', '', '0', '0', '0', '', '', 0, NULL, NULL, NULL, '', '', '', '', 0),
-(23, 'pedro', '8', '', 'f', '1', '1', '07-01-2020', 'njn', '', '', '', '0', '0', '0', 'bruh', '', 0, NULL, NULL, NULL, '', '', '', '', 0),
-(31, 'Juan Perez', '8-969-999', 'jojhan77@email.com', 'FISC', 'BRUH FESTsdd', '01-01-2020', '01-01-2021', 'sdshdhshd', '', '', '', '0', '0', '0', 'aprobado', 'finalizado', 1, 1, 1, 1, '', '', '', '', 0),
-(32, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 1', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'finalizado', 1, 0, 0, 0, '', '', '', '', 0),
-(33, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 2', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(34, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 3', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(35, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 4', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(36, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 5', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(37, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 5', '01-01-2020', '01-01-2021', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(38, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 5', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(39, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 7', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(40, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 8', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(41, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 9', '01-01-2020', '01-01-2021', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(42, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 9', '01-01-2020', '01-01-2021', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(43, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', 'EVENTO PRUEBA 10', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(44, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(45, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 11', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(46, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 12', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(47, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(48, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(49, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 13', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(50, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 14', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(51, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 15', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(52, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'EVENTO PRUEBA 17', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(53, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
-(54, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', 'bu', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0);
+INSERT INTO `solicitud` (`idSolicitud`, `nombre`, `cedula`, `correo`, `unidadAcademica`, `participantes`, `nombreEvento`, `fechaInicial`, `fechaFinal`, `comentarios`, `tipoEve`, `alcanceEve`, `lugarEvento`, `montoInscripcion`, `montoGastoViaje`, `montoApoyoEco`, `checkeado`, `estado`, `solicitud`, `rev_secretaria`, `rev_comite`, `rev_rector`, `relevancia`, `observaciones`, `comentarioRectoria`, `recomienda`, `informe`) VALUES
+(21, 'Jojhan Arboleda', '8', 'jojhan77@email.com', 'FISC', '', 'Evento deportivo', '1', '07-01-2020', 'e', '', '', '', '0', '0', '0', 'aprobado', 'finalizado', 1, 1, 1, 1, 'alto', '', '', 'si', 0),
+(22, 'Jojhan Arboleda', '8-939-629', '', 'FISC', '', '122', '124', '07-01-2020', 'muchos', '', '', '', '0', '0', '0', '', '', 0, NULL, NULL, NULL, '', '', '', '', 0),
+(23, 'pedro', '8', '', 'f', '', '1', '1', '07-01-2020', 'njn', '', '', '', '0', '0', '0', 'bruh', '', 0, NULL, NULL, NULL, '', '', '', '', 0),
+(31, 'Juan Perez', '8-969-999', 'jojhan77@email.com', 'FISC', '', 'BRUH FESTsdd', '01-01-2020', '01-01-2021', 'sdshdhshd', '', '', '', '0', '0', '0', 'aprobado', 'finalizado', 1, 1, 1, 1, '', '', '', '', 0),
+(32, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 1', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'finalizado', 1, 0, 0, 0, '', '', '', '', 0),
+(33, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 2', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(34, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 3', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(35, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 4', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(36, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 5', '01-01-2020', '02-02-2020', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(37, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 5', '01-01-2020', '01-01-2021', 'EVENTO EL CUAL DESTACA POR LAS DISTINTAS FORMAS DE PRUEBA', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(38, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 5', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(39, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 7', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(40, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 8', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(41, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 9', '01-01-2020', '01-01-2021', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(42, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 9', '01-01-2020', '01-01-2021', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(43, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', 'FISC', '', 'EVENTO PRUEBA 10', '01-01-2020', '02-02-2020', 'EVENTO', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(44, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(45, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 11', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(46, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 12', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(47, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(48, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(49, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 13', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(50, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 14', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(51, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 15', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(52, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'EVENTO PRUEBA 17', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(53, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', '', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0),
+(54, 'Jojhan Arboleda', '8-939-629', 'jojhan77@email.com', '', '', 'bu', '', '', '', '', '', '', '0', '0', '0', '', 'pendiente', 1, 0, 0, 0, '', '', '', '', 0);
 
 -- --------------------------------------------------------
 

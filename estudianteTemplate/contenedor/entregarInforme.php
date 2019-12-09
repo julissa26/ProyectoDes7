@@ -20,7 +20,7 @@ while($bruh = mysqli_fetch_array($query)){
     $participantes = $bruh['participantes'];
     $lugar = $bruh['lugarEvento'];
 }
-
+$participantes="";
 
 
 ?>
