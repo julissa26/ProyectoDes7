@@ -122,7 +122,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                              <p>
 
                              <label for="participantes">PARTICIPANTES: </label><br>
-                            <textarea id="participantes" name="participantes" placeholder="Nombre Apellido, Cedula" type="text" rows="4" cols="1" ></textarea>
+                            <textarea id="participantes" name="participantes" placeholder="Nombre Apellido, Cedula" type="text" rows="4" cols="20" ></textarea>
                     
                               </p>
 
@@ -191,11 +191,11 @@ while($bruh = mysqli_fetch_array($consulta)){
                             
                                <p>
                                 MONTO DE INSCRIPCIÓN: <br>
-                                <input id="nombreeve" name="monto" type="text" style="width: 112px;"/><br>	
+                                <input id="nombreeve" name="montoInscripcion" type="text" style="width: 112px;"/><br>	
                                  MONTO DE GASTOS DE VIAJE: <br>
-                                 <input id="fecha" name="apoyoeco" type="text" style="   width: 112px;"/><br>
+                                 <input id="fecha" name="montoGastoViaje" type="text" style="   width: 112px;"/><br>
                                  MONTO DE APOYO ECONÓMICO: <br>
-                                     <input id="fecha" name="apoyo" type="text"style="    width: 112px;" />
+                                     <input id="fecha" name="montoApoyoEcono" type="text"style="    width: 112px;" />
                                </p>
 
                                

@@ -3,7 +3,7 @@ include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."'");
+$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."' AND informe = '0'");
     if(mysqli_num_rows($consulta) <= 1)
     {
        
@@ -13,7 +13,12 @@ $consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado =
 
 $query = mysqli_query($conexion, "SELECT * FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."'");
 while($bruh = mysqli_fetch_array($query)){
-
+    $nombreEve = $bruh['nombreEvento'];
+    $fechaIni = $bruh['fechaInicial'];
+    $fechaFin = $bruh['fechaFinal'];
+    $nombre = $bruh['nombre'];
+    $participantes = $bruh['participantes'];
+    $lugar = $bruh['lugarEvento'];
 }
 
 
@@ -118,15 +123,15 @@ while($bruh = mysqli_fetch_array($query)){
                 <legend>Datos sobre el Evento</legend>
                 <p>
                     <label for="nombreEve">NOMBRE DEL EVENTO: </label><br>
-                    <input id="nombreEve" name="nombreeve" value="<?php echo $nombreeve;?>" type="text" readonly />
+                    <input id="nombreEve" name="nombreeve" value="<?php echo $nombreEve;?>" type="text" readonly />
                 </p>
                 <p>
                     <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                    <input id="fecha1" name="fechaini" type="text" value="<?php echo $fechaini;?>" readonly/>
+                    <input id="fecha1" name="fechaini" type="text" value="<?php echo $fechaIni;?>" readonly/>
                 </p>
                 <p>
                     <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                    <input id="fecha2" name="fechafin" type="text" value="<?php echo $fechafin ?>" readonly/>
+                    <input id="fecha2" name="fechafin" type="text" value="<?php echo $fechaFin ?>" readonly/>
                 </p>
                 <p>
                     <label for="lugar">LUGAR DEL EVENTO: </label><br>
@@ -134,7 +139,7 @@ while($bruh = mysqli_fetch_array($query)){
                 </p>
                 <p>
                     <label for="participante">PARTICIPANTE: </label><br>
-                    <input id="participante" name="participante" type="text" value="<?php echo $nombre, $participantes ?>" readonly />
+                    <textarea id="participante" name="participante" type="text" value="<?php echo $nombre, $participantes ?>" readonly ></textarea>
                 </p>
             </fieldset>
             
