@@ -4,11 +4,19 @@ include ('conexion.php');
 $user = $_SESSION['user'];
 
 $consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."'");
-    if(mysqli_num_rows($consulta) != 1)
+    if(mysqli_num_rows($consulta) <= 1)
     {
        
         header('Location: home.php');
     }
+
+
+$query = mysqli_query($conexion, "SELECT * FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."'");
+while($bruh = mysqli_fetch_array($query)){
+
+}
+
+
 
 ?>
 
@@ -110,23 +118,23 @@ $consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado =
                 <legend>Datos sobre el Evento</legend>
                 <p>
                     <label for="nombreEve">NOMBRE DEL EVENTO: </label><br>
-                    <input id="nombreEve" name="nombreeve" type="text" />
+                    <input id="nombreEve" name="nombreeve" value="<?php echo $nombreeve;?>" type="text" readonly />
                 </p>
                 <p>
                     <label for="fecha">FECHA INICIAL DEL EVENTO: </label><br>
-                    <input id="fecha1" name="fechaini" type="text" placeholder="dd/mm/yyyy"/>
+                    <input id="fecha1" name="fechaini" type="text" value="<?php echo $fechaini;?>" readonly/>
                 </p>
                 <p>
                     <label for="fecha">FECHA FINAL DEL EVENTO: </label><br>
-                    <input id="fecha2" name="fechafin" type="text" placeholder="dd/mm/yyyy"/>
+                    <input id="fecha2" name="fechafin" type="text" value="<?php echo $fechafin ?>" readonly/>
                 </p>
                 <p>
                     <label for="lugar">LUGAR DEL EVENTO: </label><br>
-                    <input id="lugar" name="lugar" type="text" />
+                    <input id="lugar" name="lugar" type="text" value="<?php echo $lugar ?>" readonly/>
                 </p>
                 <p>
                     <label for="participante">PARTICIPANTE: </label><br>
-                    <input id="participante" name="participante" type="text" />
+                    <input id="participante" name="participante" type="text" value="<?php echo $nombre, $participantes ?>" readonly />
                 </p>
             </fieldset>
             
