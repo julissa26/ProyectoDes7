@@ -3,8 +3,8 @@ include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE estado = 'finalizado' AND correo = '".$user."' AND informe = '0'");
-    if(mysqli_num_rows($consulta) <= 1)
+$consulta = mysqli_query($conexion, "SELECT estado FROM solicitud WHERE checkeado = 'aprobado' AND correo = '".$user."' AND informe = '0'");
+    if(mysqli_num_rows($consulta) != 1)
     {
        
         header('Location: home.php');
@@ -21,7 +21,7 @@ while($bruh = mysqli_fetch_array($query)){
     $lugar = $bruh['lugarEvento'];
 }
 
-$participantes="";
+$participantes=" ";
 
 
 ?>
@@ -59,7 +59,57 @@ $participantes="";
 
 <!-- hacer un if para que esta pagina solo se muestre si la solicitud fue aprobada-->
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="icon ion-md-menu"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.php">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Solicitudes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
+                          <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
+                        </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Informes 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="entregarInforme.php" id="entregarInfo">Entregar</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
+                        </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sesion
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
         <div class="container">
             <img src="assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

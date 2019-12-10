@@ -3,6 +3,30 @@ include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
+/*$cons = mysqli_query($conexión,"SELECT * FROM solicitud WHERE estado = 'finalizado' ");
+while($bruh = mysqli_fetch_array($cons))
+{
+  $estado = $bruh['checkeado'];
+  
+}
+if($estado = 'aprobado')
+{
+ $contAprobado = 0;
+ $contAprobado = $contAprobado + 1;
+}else{
+ $contRechazado = 0;
+ $contRechazado = $contRechazado +1;
+}
+
+if($estado = 'aprobado')
+{
+ $contAprobado = 0;
+
+ $contAprobado = $contAprobado + 1;
+}else{
+ $contRechazado = 0;
+ $contRechazado = $contRechazado +1;
+}*/
 ?>
 
 <!doctype html>
@@ -41,7 +65,7 @@ $user = $_SESSION['user'];
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Periodo', 'Aprobadas', 'Rechazadas', { role: 'style' }],
-          ['2014', 1000, 400, 'blue'],
+          ['2014', $contAprobado, $contRechazado, 'blue'],
           ['2015', 1170, 460, 'purple'],
           ['2016', 660, 1120, 'blue',]
           ['2017', 1030, 540, 'color: #e5e4e2']
@@ -78,7 +102,7 @@ $user = $_SESSION['user'];
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#hero">Home</a>
+                        <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,7 +134,7 @@ $user = $_SESSION['user'];
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
