@@ -283,19 +283,19 @@ while($bruh = mysqli_fetch_array($consulta)){
                             <br>
                             <div class="form-row">
                             <div class="form-group col-md-12">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="inputCity">Monto Inscripción</label>
                                     <input id="nombreeve" name="montoInscripcion" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
                                 <div class="form-group col-md-12">                                
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="inputEmail4">Monto Gastos de Viaje</label>
                                     <input id="fecha" name="montoGastoViaje" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="inputEmail4">Monto Apoyo Económico</label>
                                     <input id="fecha" name="montoApoyoEcono" type="text" class="form-control input-sm">
                                 </div>
