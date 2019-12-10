@@ -281,31 +281,31 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </div>
                             <br>
                             <br>
-                            <div class="form-row">
+                        </div>
+                        
+                        <div class="form-row">
                             <div class="form-group col-md-12">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-5">
                                     <label for="inputCity">Monto Inscripción</label>
                                     <input id="nombreeve" name="montoInscripcion" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
                                 <div class="form-group col-md-12">                                
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-5">
                                     <label for="inputEmail4">Monto Gastos de Viaje</label>
                                     <input id="fecha" name="montoGastoViaje" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-5">
                                     <label for="inputEmail4">Monto Apoyo Económico</label>
                                     <input id="fecha" name="montoApoyoEcono" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
                                 <hr>
-                            </div>
                         </div>
-                        
+                        <hr>
                         <div class="form-row content-center">
-
                             <div class="submit">
                                 <button id="registerButton" type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
                             </div>
