@@ -17,11 +17,11 @@ while($bruh = mysqli_fetch_array($query)){
     $fechaIni = $bruh['fechaInicial'];
     $fechaFin = $bruh['fechaFinal'];
     $nombre = $bruh['nombre'];
-    $participantes = $bruh['participantes'];
+    /* $participantes = $bruh['participantes']; */
     $lugar = $bruh['lugarEvento'];
 }
 
-$participantes="";
+/* $participantes=""; */
 
 
 ?>
@@ -111,9 +111,8 @@ $participantes="";
             </div>
         </div>
     </nav>
-
-<!-- inicio de formulario -->
-<div class="container" id="formulario">  
+    <!-- inicio de formulario -->
+        <div class="container" id="formulario">  
             <div class="content-center">
                 <h3 class="margintop-lg">Entregar Informe de evento</h3>
             </div>

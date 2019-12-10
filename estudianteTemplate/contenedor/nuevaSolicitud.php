@@ -57,55 +57,6 @@ while($bruh = mysqli_fetch_array($consulta)){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home.php">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Solicitudes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
-                          <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="entregarInforme.php" id="entregarInfo">Entregar</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sesion
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
-                    </div>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-        <div class="container">
-            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="icon ion-md-menu"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
                     <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
@@ -127,7 +78,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="entregarInforme.php" id="entregarInfo">Entregar</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.php" id="historialInfo">Historial</a>
+                          <a class="dropdown-item" href="#" id="historialInfo">Historial</a>
                         </div>
                 </li>
 
@@ -224,15 +175,15 @@ while($bruh = mysqli_fetch_array($consulta)){
 
                             <div class="form-group col-md-3">
                                 <label for="tipoeve" >Categoria</label>
-                                <select  id="tipoeve" name="categoria[]" class="form-control">
-                                    <option  value="cultural"selected>Cultural</option>
-                                    <option  value="deportivo">Deportivo</option>
+                                <select  id="tipoeve" name="tipoeve" class="form-control">
+                                    <option selected>Cultural</option>
+                                    <option>Deportivo</option>
                                 </select>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="alcenceeve">Alcance</label>
-                                <select  id="alcenceeve" name="alcence[]" class="form-control">
+                                <select  id="alcenceeve" name="alcenceeve" class="form-control">
                                     <option value="nacional" selected>Nacional</option>
                                     <option value="internacional">Internacional</option>
                                 </select>
@@ -306,7 +257,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </div>
                             <div class="form-group col-md-10">
                                 <div class="form-check">
-                                <input class="form-check-input" name="apoyoEspecial[]" value="UTPinscripcion" type="checkbox">
+                                <input class="form-check-input" name="apoyo[]" value="inscripcion" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Inscripción
                                     </label>
@@ -314,7 +265,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </div>
                             <div class="form-group col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="apoyoEspecial[]" value="UTPgastoViaje" type="checkbox">
+                                    <input class="form-check-input" name="apoyo[]" value="gastoViaje" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Gastos de Viaje
                                     </label>
@@ -322,7 +273,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </div>
                             <div class="form-group col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" name="apoyoEspecial[]" value="UTPapoyoEconomico"type="checkbox">
+                                    <input class="form-check-input" name="apoyo[]" value="apoyoEconomico"type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Apoyo Económico
                                     </label>
@@ -351,32 +302,32 @@ while($bruh = mysqli_fetch_array($consulta)){
                                     <input id="fecha" name="montoApoyoEcono" type="text" class="form-control input-sm">
                                 </div>
                                 </div>
-                                <hr>
-                        </div>
-                        <hr>
-                        <div class="form-row content-center">
-                            <div class="submit">
-                                <button id="registerButton" type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                                
                             </div>
+                            <hr>
                         </div>
+                            <hr>
+                            <div class="form-row content-center">
+                                <div class="submit">
+                                    <button id="registerButton" type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                                </div>
+                            </div>
     
-                            <div class="form-group">
+                            <!-- <div class="form-group"> -->
                                 <!-- <form name="add_name" id="add_name"> -->
-                                    <div class="table-responsive">
+                                    <!-- <div class="table-responsive">
                                         <table class="table table-borderless" id="dynamic_field">
                                             <tr>
-                                                <!-- <td><input type="text" name="name[]" placeholder="Nombre Completo" class="form-control name_list" /></td>
-                                                <td><input type="text" name="ced[]" placeholder="Cedula" class="form-control name_list" /></td> -->
-                                                <!-- <td><button type="button" name="add" id="add" class="btn btn-secondary btn-sm">+</button></td> -->
+                                                <td><input type="text" name="name[]" placeholder="Nombre Completo" class="form-control name_list" /></td>
+                                                <td><input type="text" name="ced[]" placeholder="Cedula" class="form-control name_list" /></td>
+                                                <td><button type="button" name="add" id="add" class="btn btn-secondary btn-sm">+</button></td>
                                                 
                                             </tr>
                                         </table>
-                                        <!-- <input type="button" name="submit" id="submit" class="btn btn-success" value="Submit" /> -->
-                                    </div>
+                                        <input type="button" name="submit" id="submit" class="btn btn-success" value="Submit" />
+                                    </div> -->
                                 <!-- </form> -->
-                            </div>
-                        </div>
-                    
+                            <!-- </div> -->
                     </div>
                 </div>
             </form>

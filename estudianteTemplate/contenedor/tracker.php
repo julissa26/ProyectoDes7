@@ -101,7 +101,7 @@ if($sec = 1 AND $com != 1 AND $rec != 1){
                           <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
                           <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
+                          <a class="dropdown-item" href="" id="historialSol">Historial</a>
                         </div>
                 </li>
 
@@ -161,17 +161,9 @@ if($sec = 1 AND $com != 1 AND $rec != 1){
 </div>
 
 
-    <footer class="bgDark">
+<footer class="bgDark">
             <div class="container">
-                <img src="../assets/images/logo1.png" class="logo-brand" alt="logo">
-                 <ul class="list-inline">
-                    <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Acerca de Nosotros</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
-                </ul>
-                 
-                <small>©2019 All Rights Reserved.</small>
+                <small>©2019 Proyecto Semestral - Desarrollo VII.</small>
             </div>
         </footer>
 

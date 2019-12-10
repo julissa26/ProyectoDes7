@@ -16,7 +16,8 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
     $unidad = '';
     $fechaini = '';
     $fechafin = '';
-}  
+} 
+$cont=0; 
 
 
 
@@ -62,56 +63,7 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
          }       
 </style>
 <body>
-<nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="icon ion-md-menu"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.php">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Solicitudes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
-                          <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Informes 
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="entregarInforme.php" id="entregarInfo">Entregar</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
-                        </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sesion
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
-                    </div>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <img src="../assets/images/logo14.png" class="logo-brand" alt="logo">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -160,54 +112,53 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
         </div>
     </nav>
     <section id="solicitudes">
-        <duv class="container">
+        <div class="container">
                 <div class="content-center">
                     <h2 class="margintop-lg">Historial de Solicitudes</h2>
                 </div>
-            </duv>
+        </div>
             <div class="solicitudes">
-            <table> 
-                            <tr>
-                                <th> Solicitud:</th>
-                                <th><label for="fecha">Fecha: </label></th>
-                                <th><label for="estado">Estado: </label></th>
-                            </tr>
-                            <?php while ($bruh = mysqli_fetch_array($consulta)){?>
-                            <tr>
-                                <ul>   
-                                    <td>
-                                        <a href="verSolPendiente.php"><?php echo $nombreEvento= $bruh['nombreEvento'];?></a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha"><?php echo $fechaini = $bruh['fechaInicial']; ?> </label></p>
-                                    </td>   
-                                     <td>
-                                        <p><label for="estado"><?php echo $checkeado = $bruh['checkeado'];?> </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <?php }?>
-                           
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" id="nombreeve">EVENTO</th>
+                    <th scope="col" id="fecha">FECHA</th>
+                    <th scope="col" id="estado">ESTADO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <?php while ($bruh = mysqli_fetch_array($consulta)){?>
                        
-                    </p>
-                        </table>
+                        <tr>
+                            <ul> 
+                                <th scope="row"><?php echo $cont = $cont+1; ?> </th>
+                                <td><a href="verSolPendiente.php"><?php echo $nombreEvento= $bruh['nombreEvento'];?></a></td>
+                                <td><label for="fecha"><?php echo $fechaini = $bruh['fechaInicial']; ?> </label></td>
+                                <td><label for="estado"><?php echo $checkeado = $bruh['checkeado'];?> </label></td>
+                            </ul> 
+                        </tr>
+                    <?php }?>
+   
+                </tbody>
+                </table>
+
                         <br>
                         <br>
-                        <p class="submit">
-                        <button><a class="enlace" href="historialSolicitud.php">Volver</a></button>
-                       </div>  
-                     </section>  
-                        <footer class="bgDark">
+                        <div class="submit">
+                                    <button id="registerButton" type="submit"><a class="enlace" href="historialSolicitud.php">Volver</button>    
+                        </div>
+                        <br>
+                        <br>
+        </section>  
+
+
+
+
+        <footer class="bgDark">
             <div class="container">
-                <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
-               <!--  <ul class="list-inline">
-                    <li class="list-inline-item footer-menu"><a href="#">Home</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Faqs</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Acerca de Nosotros</a></li>
-                    <li class="list-inline-item footer-menu"><a href="#">Contacto</a></li>
-                </ul>
-                 -->
-                <small>©2019 All Rights Reserved.</small>
+                <small>©2019 Proyecto Semestral - Desarrollo VII.</small>
             </div>
         </footer>
 

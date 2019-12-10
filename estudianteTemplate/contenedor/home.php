@@ -3,30 +3,6 @@ include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-/*$cons = mysqli_query($conexión,"SELECT * FROM solicitud WHERE estado = 'finalizado' ");
-while($bruh = mysqli_fetch_array($cons))
-{
-  $estado = $bruh['checkeado'];
-  
-}
-if($estado = 'aprobado')
-{
- $contAprobado = 0;
- $contAprobado = $contAprobado + 1;
-}else{
- $contRechazado = 0;
- $contRechazado = $contRechazado +1;
-}
-
-if($estado = 'aprobado')
-{
- $contAprobado = 0;
-
- $contAprobado = $contAprobado + 1;
-}else{
- $contRechazado = 0;
- $contRechazado = $contRechazado +1;
-}*/
 ?>
 
 <!doctype html>
@@ -36,9 +12,7 @@ if($estado = 'aprobado')
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta name="author" content="Diego Velázquez">
-    <meta name="description" content="Smart Agency is a one page responsive Bootstrap 4 template. This is a free open source theme, you can use our theme for any purpose, even commercially. Create amazing websites with this easy to customize template."> -->
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -57,6 +31,7 @@ if($estado = 'aprobado')
     <link rel="shortcut icon" href="../assets/images//logo.png" />
    
     <!-- charts -->
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
@@ -64,25 +39,25 @@ if($estado = 'aprobado')
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Periodo', 'Aprobadas', 'Rechazadas', { role: 'style' }],
-          ['2014', $contAprobado, $contRechazado, 'blue'],
-          ['2015', 1170, 460, 'purple'],
-          ['2016', 660, 1120, 'blue',]
-          ['2017', 1030, 540, 'color: #e5e4e2']
+          ['Mes', 'Aprobadas', 'Rechazadas'],
+          ['Enero', 2, 3],          
         ]);
 
         var options = {
           chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            title: 'Solicitudes Mensuales',
           }
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_material'));
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
 
         chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
+
+    
+
+
     <!-- /charts -->
 
 
@@ -102,7 +77,7 @@ if($estado = 'aprobado')
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="home.php">Home</a>
+                        <a class="nav-link" href="#hero">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -134,7 +109,7 @@ if($estado = 'aprobado')
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="perfil.php" id="perfilSesi">Mi Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../../salir.php" id="cerrarSesi">Cerrar sesión</a>
+                        <a class="dropdown-item" href="salir.php" id="cerrarSesi">Cerrar sesión</a>
                     </div>
                 </li>
                 </ul>
@@ -142,6 +117,7 @@ if($estado = 'aprobado')
         </div>
     </nav>
 
+    <div class="principal">
     <section id="hero">
         <div class="home">
             <div class="content-center">
@@ -154,83 +130,105 @@ if($estado = 'aprobado')
         </div>
     </section>
 
-    <div class="principal">
-
-        <section id="slider">
-            <hr>
-              <div class="row content-center">
-                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                      </ol>
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100" src="../assets/images/facha.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100" src="../assets/images/facha2r.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100" src="../assets/images/fachadar.jpg" alt="Third slide">
-                        </div>
-                      </div>
-                      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                  </div>
-              </div>
-        </section>
-
-      <section id="comentarios">
-        <hr>
-          <h3 class="content-center">Comentarios
-              <p> Algunos comentarios de las experiencias vividas por los estudiantes en diferentes eventos relacionados con la Universidad.
-              </p>
-          </h3>
-
-          <div class="row">
-          </div>
-      </section>
-      
+    
+    <hr>
+      <!-- section charts -->
       <section id="charts">
-          <hr>
           <h3 class="content-center">Estadisticas
             <p> Estado actual de las solicitudes atendidas por la comision de 
               movilidad estudiantil.
             </p>
+
           </h3>
-
-          <div class="row">
-
-              <!-- column chart -->
-              <!-- <div class="col-sm-6">
-              <div class="card"> -->
-                  <div class="card-body content-center">
-                      <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-                  </div>
-            <!--  </div>
-              </div> -->
-              
-          </div>            
+                  <div id="columnchart_material" class="content-center" style="width: 600px; height: 400px;"></div>         
       </section>
+      <hr>
+      <!-- section faqs -->
+      <section id="faqs">
+          
+          <h3 class="content-center">Preguntas Frecuentes
+            <p> Compilación de preguntas frequentes acerca de la plataforma.</p> 
+          </h3>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿Cuantas solicitudes puedo realizar en el semestre?</h5>
+                    <p class="card-text">Cada solicitud debe ser hecha con al menos dos meses antes de la fecha del evento
+                      , no hay limite de la cantidad de solicitudes que puedes hacer, siempre y cuando no tengas niguna solicitud en estado pendiente. 
+                    </p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿Como sabré quien está revisando mi solicitud?</h5>
+                    <p class="card-text">Contamos con una Barra de progreso en la cuál podrás observar el avance de tu solicitud, 
+                      quién la está revisando y los distintos feedback para que tu solicitud esté en orden, 
+                      ellos se encargaran de aprobar y/o rechazar la solicitud.</p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿Cuantas personas pueden ir a una representación?</h5>
+                    <p class="card-text">No existe un límite de acompañantes para alguna representación,  
+                      aunque la universidad dará los parámetros en caso de que no se cuente con los suficientes fondos 
+                      para todo el grupo.</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿Quienes son los encargados de revisar mi solicitud?</h5>
+                    <p class="card-text">La secretaría de vida estudiantil, El comité evaluador, Rectoría.</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿De que año debo ser para realizar una solicitud?</h5>
+                    <p class="card-text">Tu nivel académico no importa al momento de aplicar a una 
+                      solicitud pero necesitas un índice mínimo de 1.50.</p>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">¿La universidad me cobrará algo? </h5>
+                    <p class="card-text">La universidad no te cobrará nada si se te aprueba una solicitud, esto es parte de tu vida universitaria.</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+      </section>
+      
         
        
     </div> 
      <!-- end div principal -->
 
-    <footer class="bgDark fixed-bottom">
+    <footer class="bgDark">
         <div class="container">
-            <!-- <img src="../assets/images/logo1.png" class="logo-brand" alt="logo"> -->
             <ul class="list-inline">
                 <li class="list-inline-item footer-menu"><a href="#hero">Home</a></li>
-                <li class="list-inline-item footer-menu"><a href="#comentarios">comentarios</a></li>
                 <li class="list-inline-item footer-menu"><a href="#faqs">Faqs</a></li>
                 <li class="list-inline-item footer-menu"><a href="#charts">Estadisticas</a></li>
             </ul>

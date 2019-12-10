@@ -10,10 +10,14 @@ if(mysqli_num_rows($cons)>=1){
 
     $consulta = mysqli_query($conexion,"SELECT * FROM informee WHERE correo = '".$user."'");
 
-}else if(mysqli_num_rows($cons)==0){
-    
-    header('Location:historialInforme.php');
-   
+}else{
+    $idSol = "Estudiante sin ninguna Solicitud.";
+    $nombre = '';
+    $cedula = '';
+    $nombreEvento = '';
+    $unidad = '';
+    $fechaini = '';
+    $fechafin = '';
 }  
 
 
