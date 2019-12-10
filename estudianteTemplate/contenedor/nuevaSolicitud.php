@@ -120,8 +120,10 @@ while($bruh = mysqli_fetch_array($consulta)){
                                 <input id="unidadaca" name="unidadaca"  type="text"  />
                             </p>
                              <p>
-                                 <br>
-                             <button  ><a style="color:black" href="filasdinamicas.html"> Añadir más Estudiantes</a></button>
+
+                             <label for="participantes">PARTICIPANTES: </label><br>
+                            <textarea id="participantes" name="participantes" placeholder="Nombre Apellido, Cedula" type="text" rows="4" cols="20" ></textarea>
+                    
                               </p>
 
                         </fieldset>
@@ -165,18 +167,20 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </p>
                             <p>
                                 <label for="dirrecion">Especifique Lugar</label><br>                               
-                                <input id="dirrecion" name="direcion" type="text" />
-                            </p>
-                             <p>APOYO OFRECIDO POR ORGANIZADORES O PATROCINADORES DEL EVENTO:<br><br>
+                                <input id="dirrecion" name="lugarEvento" type="text" />
+                            </p>    
+                             
+
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>TIPO DE APOYO</legend>
+
+                            <p>APOYO OFRECIDO POR ORGANIZADORES O PATROCINADORES DEL EVENTO:<br><br>
                             <input type="checkbox" name="apoyoEspecial[]" value="Inscripcion" style="  width: 50px;">INSCRIPCIÓN <br>
                             <input type="checkbox" name="apoyoEspecial[]" value="Hospedaje" style="  width: 50px;">HOSPEDAJE  <br>
                     		<input type="checkbox" name="apoyoEspecial[]" value="Manutencion" style="  width: 50px;">MANUTENCIÓN <br>
                				<input type="checkbox" name="apoyoEspecial[]" value="Gastos de Viaje" style="  width: 50px;">GASTOS DE VIAJE<br>
                             <input type="checkbox" name="apoyoEspecial[]" value="ApoyoEconoParcial"  style="  width: 50px;">APOYO ECONÓMICO PARCIAL</p>
-
-                        </fieldset>
-                        <fieldset class="step">
-                            <legend>TIPO DE APOYO</legend>
                         
                             <p>
                                 APOYO SOLICITADO A UTP:  <br><br>
@@ -187,11 +191,11 @@ while($bruh = mysqli_fetch_array($consulta)){
                             
                                <p>
                                 MONTO DE INSCRIPCIÓN: <br>
-                                <input id="nombreeve" name="monto" type="text" style="width: 112px;"/><br>	
+                                <input id="nombreeve" name="montoInscripcion" type="text" style="width: 112px;"/><br>	
                                  MONTO DE GASTOS DE VIAJE: <br>
-                                 <input id="fecha" name="apoyoeco" type="text" style="   width: 112px;"/><br>
+                                 <input id="fecha" name="montoGastoViaje" type="text" style="   width: 112px;"/><br>
                                  MONTO DE APOYO ECONÓMICO: <br>
-                                     <input id="fecha" name="apoyo" type="text"style="    width: 112px;" />
+                                     <input id="fecha" name="montoApoyoEcono" type="text"style="    width: 112px;" />
                                </p>
 
                                

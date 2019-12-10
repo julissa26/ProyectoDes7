@@ -2,21 +2,12 @@
 include ('../../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
-$ced = $_POST['cedula'];
 
+$consulta = mysqli_query($conexion,"SELECT * FROM informee WHERE correo = '".$user."'");
 
-$consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$ced."'");
-
-
-   if(mysqli_num_rows($consulta)<= 0){
-    $idSol = "Estudiante sin ninguna Solicitud.";
-    $nombre = '';
-    $cedula = '';
-    $nombreEvento = '';
-    $unidad = '';
-    $fechaini = '';
-    $fechafin = '';
-}  
+while($bruh = mysqli_fetch_array($consulta)){
+    $cedula = $bruh['cedula'];
+}
 
 
 
@@ -80,7 +71,8 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
                           Solicitudes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="solicitudesPendientes.php" id="pendienteSol">Pendientes</a>
+                          <a class="dropdown-item" href="nuevaSolicitud.php" id="nuevaSol">Nueva Solicitud</a>
+                          <a class="dropdown-item" href="tracker.php" id="pendienteSol">Pendientes</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
@@ -110,45 +102,32 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
             </div>
         </div>
     </nav>
+
     <section id="solicitudes">
         <duv class="container">
                 <div class="content-center">
-                    <h2 class="margintop-lg">Historial de Solicitudes</h2>
+                    <h2 class="margintop-lg">Historial de Informes</h2>
                 </div>
             </duv>
             <div class="solicitudes">
-            <table> 
-                            <tr>
-                                <th> Solicitud:</th>
-                                <th><label for="fecha">Fecha: </label></th>
-                                <th><label for="estado">Estado: </label></th>
-                            </tr>
-                            <?php while ($bruh = mysqli_fetch_array($consulta)){?>
-                            <tr>
-                                <ul>   
-                                    <td>
-                                        <a href="verSolPendiente.php"><?php echo $nombreEvento= $bruh['nombreEvento'];?></a>
-                                    </td>
-                                    <td>
-                                        <p><label for="fecha"><?php echo $fechaini = $bruh['fechaInicial']; ?> </label></p>
-                                    </td>   
-                                     <td>
-                                        <p><label for="estado"><?php echo $checkeado = $bruh['checkeado'];?> </label></p>
-                                    </td>
-                                </ul>
-                            </tr>
-                            <?php }?>
-                           
-                       
+                <p>
+                <form class="formFinal" name="formFinal" action="verHistorialInforme.php" method="post">
+                    <label for="cedula">CÉDULA DEL ESTUDIANTE: </label><br>
+                    <input id="cedula" name="cedula" value="<?php echo $cedula;?>" type="text" AUTOCOMPLETE=OFF readonly/>
+                </p> 
+                <br>
+                    <p class="submit">
+                        <button><a class="enlace" >Buscar</a></button>
                     </p>
-                        </table>
-                        <br>
-                        <br>
-                        <p class="submit">
-                        <button><a class="enlace" href="historialSolicitud.php">Volver</a></button>
-                       </div>  
-                     </section>  
-                        <footer class="bgDark">
+                <br>   
+                        <ol>
+                        
+                        </ol>
+                        </form>
+                    </div>
+    </section>
+
+    <footer class="bgDark">
             <div class="container">
                 <img src="assets/images/logo1.png" class="logo-brand" alt="logo">
                <!--  <ul class="list-inline">
@@ -175,4 +154,4 @@ $consulta = mysqli_query($conexion,"SELECT * FROM solicitud WHERE cedula = '".$c
         crossorigin="anonymous"></script>
 </body>
 
-</html>                       
+</html>

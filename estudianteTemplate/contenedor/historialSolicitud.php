@@ -76,6 +76,16 @@ while($bruh = mysqli_fetch_array($consulta)){
                           <a class="dropdown-item" href="historialSolicitud.php" id="historialSol">Historial</a>
                         </div>
                 </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Informes 
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="informesPendientes.php" id="entregarInfo">Pendientes</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="historialInforme.php" id="historialInfo">Historial</a>
+                        </div>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

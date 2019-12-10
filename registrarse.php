@@ -88,7 +88,7 @@
 							ir al login
 						</span>
 
-						<a href="../index.php" class="txt2">
+						<a href="index.php" class="txt2">
 							Login
 						</a>
 					</div>

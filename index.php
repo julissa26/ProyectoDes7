@@ -72,7 +72,7 @@
 					<div class="flex-col-c p-t-155">
 						<span class="txt1 p-b-17">
 
-						<a href="contenedor/registrarse.php" class="txt2">
+						<a href="registrarse.php" class="txt2">
 							REGISTRARSE
 						</a>
 					</div>

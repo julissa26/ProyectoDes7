@@ -1,8 +1,8 @@
 
 //URGENTE//
 AGREGADO DE IMAGENES Y ARCHIVOS A BD
-1. Revisar Informes
-2. Verificar redireccion y comportamiendo de los botones en solicitud 
+1. Hacer pruebas completas
+2. 
 3. Comentario de Rector
 4. Devolucion de Secretaria
 5. ver como agregar los checkboxs a la base de datos y los options 
@@ -13,7 +13,7 @@ AGREGADO DE IMAGENES Y ARCHIVOS A BD
 
 5. agregar los FAQS a la index 
 6. terminar index con sus secciones 
-7. Autocompletar datos que esten en la BD a campos en solicitud e Informe
+7.
 
 
 terminar cosas urgentes para comenzar el fin de semana con la organizacion de las carpetas 
