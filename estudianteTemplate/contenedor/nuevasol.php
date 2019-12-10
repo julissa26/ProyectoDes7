@@ -30,7 +30,8 @@ while($bruh = mysqli_fetch_array($consulta)){
 
     <!-- Style -->
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/formulario.css">
+    <!-- <link rel="stylesheet" href="../assets/css/formulario.css"> -->
+    <link rel="stylesheet" href="../assets/css/formulario2.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -100,8 +101,8 @@ while($bruh = mysqli_fetch_array($consulta)){
     </nav>
     <!-- final del navbar --> 
 
-     <!-- inicio del formulario -->
-     <div class="container" id="formulario">  
+        <!-- inicio del formulario -->
+        <div class="container" id="formulario">  
             <div class="content-center">
                 <h3 class="margintop-lg">Nueva Solicitud</h3>
             </div>
@@ -124,7 +125,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                                 <input id="cedula" name="cedula" value="<?php echo $cedula;?>" type="text" class="form-control input-sm" readonly>
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="inputState">Unidad Academica</label>
                                 <input id="unidadaca" name="unidadaca"  type="text" class="form-control">
                                 <!-- <select id="inputState" class="form-control">
@@ -252,53 +253,48 @@ while($bruh = mysqli_fetch_array($consulta)){
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <h5>Apoyo Solicitado a la Universidad</h5> 
+                            <br>
+                            <br>
+                            <div class="form-row">
+
+                            <div class="form-group col-md-12">
+                                <h5>Apoyo Solicitado a la Universidad</h5>
                             </div>
-                            <div class="form-group col-md-10">
+                            
+                            <div class="form-group col-md-12">
                                 <div class="form-check">
-                                <input class="form-check-input" name="apoyo[]" value="inscripcion" type="checkbox">
+                                    <input class="form-check-input" name="apoyo[]" value="inscripcion" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Inscripción
                                     </label>
                                 </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputCity">Monto</label>
+                                <input id="nombreeve" name="montoInscripcion" type="text" class="form-control input-sm">
                             </div>
-                            <div class="form-group col-md-10">
+                            </div>
+                            <div class="form-group col-md-12">
                                 <div class="form-check">
                                     <input class="form-check-input" name="apoyo[]" value="gastoViaje" type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Gastos de Viaje
                                     </label>
                                 </div>
+                                <div class="form-group col-md-4">
+                                <label for="inputEmail4">Monto</label>
+                                <input id="fecha" name="montoGastoViaje" type="text" class="form-control input-sm">
                             </div>
-                            <div class="form-group col-md-10">
+                            </div>
+                            <div class="form-group col-md-12">
                                 <div class="form-check">
                                     <input class="form-check-input" name="apoyo[]" value="apoyoEconomico"type="checkbox">
                                     <label class="form-check-label" for="defaultCheck1">
                                         Apoyo Económico
                                     </label>
                                 </div>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="form-row">
-                            <div class="form-group col-md-12">
                                 <div class="form-group col-md-4">
-                                    <label for="inputCity">Monto Inscripción</label>
-                                    <input id="nombreeve" name="montoInscripcion" type="text" class="form-control input-sm">
-                                </div>
-                                </div>
-                                <div class="form-group col-md-12">                                
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Monto Gastos de Viaje</label>
-                                    <input id="fecha" name="montoGastoViaje" type="text" class="form-control input-sm">
-                                </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Monto Apoyo Económico</label>
+                                    <label for="inputEmail4">Monto</label>
                                     <input id="fecha" name="montoApoyoEcono" type="text" class="form-control input-sm">
-                                </div>
                                 </div>
                                 <hr>
                             </div>
@@ -333,11 +329,26 @@ while($bruh = mysqli_fetch_array($consulta)){
             </form>
         </div>
 
+
+
+
+
+
+
+
+
+
+    <!-- comienzo del footer  -->
     <footer class="bgDark">
             <div class="container">
                 <small>©2019 Proyecto Semestral - Desarrollo VII.</small>
             </div>
         </footer>
+    <!-- final del footer  -->
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -350,6 +361,40 @@ while($bruh = mysqli_fetch_array($consulta)){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+        <script>
+
+    $(document).ready(function(){
+        var i = 1;
+
+        $('#add').click(function () {
+            i++;
+            $('#dynamic_field').append('<tr id="row'+i+'">' +
+                                        '<td><input type="text" name="name[]" placeholder="Nombre Completo" class="form-control name_list" /></td>' +
+                                        '<td><input type="text" name="name[]" placeholder="Cedula" class="form-control name_list" /></td>' +
+                                        '<td><button type="button" name="remove" id="'+i+'" class="btn btn-info btn_remove">Eliminar</button></td>' +
+                                        '</tr>');
+        });
+        
+        $(document).on('click', '.btn_remove', function () {
+            var id = $(this).attr('id');
+           $('#row'+ id).remove();
+        });
+
+        $('#submit').click(function(){
+            $.ajax({
+                url:"name.php",
+                method:"POST",
+                data:$('#add_name').serialize(),
+                success:function(data)
+                {
+                    alert(data);
+                    $('#add_name')[0].reset();
+                }
+            });
+        });
+    })
+</script>
 </body>
 
 </html>
