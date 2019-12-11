@@ -3,7 +3,7 @@ include ('../validar.php');
 include ('conexion.php');
 $user = $_SESSION['user'];
 
-$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND estado = ''");
+$consulta = mysqli_query($conexion, "SELECT idSolicitud, nombre, cedula, nombreEvento FROM solicitud WHERE  solicitud = '1' AND checkeado = ''");
 while($bruh = mysqli_fetch_array($consulta)){
     $idSol = $bruh['idSolicitud'];
     $nombre = $bruh['nombre'];
@@ -108,20 +108,16 @@ if(mysqli_num_rows($consulta)<= 0){
                         <h2 class="margintop-lg">Solicitudes Pendientes</h2>
                     </div>
                 </duv>
-                <form class="formFinal" name="formFinal" action="" method="post">
+                < <form class="formFinal" name="formFinal" action="" method="post">
                         <fieldset class="step">
-                        <?php while ($bruh = mysqli_fetch_array($consulta)){?>
                             <div class="card" style="width: 45rem;">
                             <div class="card-body">
-                            <h5 class="card-title"><?php echo $bruh=['idSolicitud'] ," ", $bruh=['nombreEvento'] ," ";?><br/></h5>
+                            <h5 class="card-title"><?php echo $idSol ," ", $nombreEvento ," ";?><br/></h5>
                             <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
-                            <p class="card-text">Enviado por <?php echo $bruh=['nombre']," ", $bruh=['cedula']," ";?><br/></p>
+                            <p class="card-text">Enviado por <?php echo $nombre," ", $cedula," ";?><br/></p>
                             <a href="verSolPendiente.php" class="card-link">ver mas</a>
                             </div>
                             </div>
-                            <br>
-                        <?php }?>
-                            
                             <br>
 
                         </fieldset>

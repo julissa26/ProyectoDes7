@@ -122,36 +122,7 @@ if(mysqli_num_rows($consulta)<= 0){
                             </div>
                             <br>
 
-                            <div class="card" style="width: 45rem;">
-                            <div class="card-body">
-                            <h5 class="card-title">Torneo Internacional de Ajedrez Colombia 2019</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
-                            <p class="card-text">Enviado por Juan Samaniego.</p>
-                            <a href="#" class="card-link">ver mas</a>
-                            </div>
-                            </div>
-                            <br>
-
-                            <div class="card" style="width: 45rem;">
-                            <div class="card-body">
-                            <h5 class="card-title">Olimpiadas de Fisica Costa Rica</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
-                            <p class="card-text">Enviado por Jualissa Bello.</p>
-                            <a href="#" class="card-link">ver mas</a>
-                            </div>
-                            </div>
-                            <br>
-
-                            <div class="card" style="width: 45rem;">
-                            <div class="card-body">
-                            <h5 class="card-title">Solicitud 4: Seminario Bitcoin, su trascendencia en el futuro de la banca</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">archivo pendiente</h6>
-                            <p class="card-text">Enviado por Johan Arboleda.</p>
-                            <a href="#" class="card-link">ver mas</a>                    
-                            </div>
-                            </div>
-                            <br>
-
+                         
                         </fieldset>
                     </form>
     </section>

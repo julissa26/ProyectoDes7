@@ -200,7 +200,7 @@ while($bruh = mysqli_fetch_array($consulta)){
                             </p>
                             <br>
                             <p class="submit">
-                                <button><a class="enlace"<?php $consu=$conexion->prepare("UPDATE solicitud SET recomienda = 'no' WHERE idSolicitud = '".$idSol."'");?> href="formularioComite.php">No Recomendar</a></button>
+                                <button><a class="enlace"<?php $consu=mysqli_query($conexion,"UPDATE solicitud SET recomienda = 'no', checkeado = 'comite', rev_comite = '1' WHERE idSolicitud = '".$idSol."'");?> href="formularioComite.php">No Recomendar</a></button>
                             </p>
                             <br>
                         </fieldset>
